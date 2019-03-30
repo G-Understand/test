@@ -1,0 +1,10 @@
+2018-10-26 18:27:43,864 [10] DEBUG pay  - debug message
+2018-10-26 18:27:43,874 [10] DEBUG pay  - debug message
+2018-10-26 18:27:43,876 [10] DEBUG pay  - debug message
+2018-10-26 18:27:43,878 [10] DEBUG pay  - debug message
+2018-10-26 18:27:43,882 [10] DEBUG pay  - debug message
+2018-10-26 18:27:43,884 [10] DEBUG pay  - debug message
+2018-10-26 18:27:43,887 [10] DEBUG pay  - debug message
+2018-10-26 18:27:43,889 [10] DEBUG pay  - debug message
+2018-10-26 18:27:43,891 [10] DEBUG pay  - debug message
+2018-10-26 18:27:43,894 [10] DEBUG pay  - debug message

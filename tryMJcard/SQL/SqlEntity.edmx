@@ -1,0 +1,2228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DFWModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="manager">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="role_id" Type="int" />
+          <Property Name="role_type" Type="int" />
+          <Property Name="user_name" Type="nvarchar" MaxLength="100" />
+          <Property Name="password" Type="nvarchar" MaxLength="100" />
+          <Property Name="salt" Type="nvarchar" MaxLength="20" />
+          <Property Name="real_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="telephone" Type="nvarchar" MaxLength="30" />
+          <Property Name="email" Type="nvarchar" MaxLength="30" />
+          <Property Name="is_lock" Type="int" />
+          <Property Name="add_time" Type="datetime" />
+          <Property Name="dailiid" Type="int" />
+          <Property Name="qunid" Type="int" />
+          <Property Name="pwd" Type="nvarchar" MaxLength="50" />
+          <Property Name="fanli" Type="int" />
+          <Property Name="money" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="tuijianma" Type="int" />
+          <Property Name="parent_id" Type="int" />
+          <Property Name="agentLevel" Type="int" />
+        </EntityType>
+        <EntityType Name="manager_role">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="role_name" Type="nvarchar" MaxLength="100" />
+          <Property Name="role_type" Type="tinyint" />
+          <Property Name="is_sys" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="manager_role_value">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="role_id" Type="int" />
+          <Property Name="nav_name" Type="nvarchar" MaxLength="100" />
+          <Property Name="action_type" Type="nvarchar" MaxLength="50" />
+          <Property Name="nav_id" Type="int" />
+        </EntityType>
+        <EntityType Name="navigation">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="parent_id" Type="int" />
+          <Property Name="channel_id" Type="int" />
+          <Property Name="nav_type" Type="nvarchar" MaxLength="50" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="title" Type="nvarchar" MaxLength="100" />
+          <Property Name="sub_title" Type="nvarchar" MaxLength="100" />
+          <Property Name="icon_url" Type="nvarchar" MaxLength="255" />
+          <Property Name="link_url" Type="nvarchar" MaxLength="255" />
+          <Property Name="sort_id" Type="int" />
+          <Property Name="is_lock" Type="tinyint" />
+          <Property Name="remark" Type="nvarchar" MaxLength="500" />
+          <Property Name="action_type" Type="nvarchar" MaxLength="500" />
+          <Property Name="is_sys" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="tb_ChatDetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ChatType" Type="int" />
+          <Property Name="SendWxid" Type="int" />
+          <Property Name="SendUserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SendUserImage" Type="nvarchar" MaxLength="500" />
+          <Property Name="HongBaoId" Type="int" />
+          <Property Name="HongBaoName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Content" Type="text" />
+          <Property Name="SendTime" Type="datetime" />
+          <Property Name="qunId" Type="int" />
+          <Property Name="faName" Type="nvarchar" MaxLength="50" />
+          <Property Name="lingName" Type="nvarchar" MaxLength="50" />
+          <Property Name="lingWxid" Type="int" />
+        </EntityType>
+        <EntityType Name="tb_choushui">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="wxid" Type="int" />
+          <Property Name="jinbi" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="summary" Type="nvarchar" MaxLength="500" />
+          <Property Name="setdate" Type="datetime" />
+          <Property Name="tuijianma" Type="int" />
+        </EntityType>
+        <EntityType Name="tb_fankui">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="uid" Type="nvarchar" MaxLength="500" />
+          <Property Name="fankuitype" Type="nvarchar" MaxLength="50" />
+          <Property Name="content" Type="nvarchar" MaxLength="500" />
+          <Property Name="setdate" Type="datetime" />
+          <Property Name="lianxi" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="tb_game_detail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="orderid" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="orderdetailid" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="openid" Type="nvarchar" MaxLength="50" />
+          <Property Name="roomid" Type="int" />
+          <Property Name="iszhuang" Type="int" />
+          <Property Name="ishu" Type="int" />
+          <Property Name="isting" Type="int" />
+          <Property Name="hufen" Type="int" />
+          <Property Name="gangfen" Type="int" />
+          <Property Name="caguafen" Type="int" />
+          <Property Name="zongfen" Type="int" />
+          <Property Name="gangcountming" Type="int" />
+          <Property Name="gangcountan" Type="int" />
+          <Property Name="pengganginfo" Type="nvarchar" MaxLength="4000" />
+          <Property Name="setdate" Type="datetime" />
+          <Property Name="gametype" Type="nvarchar" MaxLength="50" />
+          <Property Name="mashu" Type="int" />
+          <Property Name="caguainfo" Type="nvarchar" MaxLength="4000" />
+          <Property Name="mypk" Type="nvarchar" MaxLength="500" />
+          <Property Name="fanshu" Type="int" />
+          <Property Name="fanshuname" Type="nvarchar" MaxLength="500" />
+          <Property Name="gen" Type="int" />
+          <Property Name="hutype" Type="int" />
+          <Property Name="dianpaouid" Type="nvarchar" MaxLength="500" />
+          <Property Name="zimouid" Type="nvarchar" MaxLength="500" />
+          <Property Name="chadajiaouid" Type="nvarchar" MaxLength="500" />
+          <Property Name="hutime" Type="datetime" />
+          <Property Name="defendetail" Type="nvarchar" MaxLength="4000" />
+          <Property Name="shufendetail" Type="nvarchar" MaxLength="4000" />
+          <Property Name="huashu" Type="int" />
+          <Property Name="julebuid" Type="int" />
+          <Property Name="istaopao" Type="int" />
+          <Property Name="fzwxid" Type="int" />
+        </EntityType>
+        <EntityType Name="tb_gameRecords">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="roomId" Type="int" Nullable="false" />
+          <Property Name="gameRecords" Type="text" />
+          <Property Name="stateTime" Type="datetime" />
+          <Property Name="orderId" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="round" Type="int" />
+          <Property Name="julebuid" Type="int" />
+          <Property Name="roomtype" Type="int" />
+        </EntityType>
+        <EntityType Name="tb_hongBao">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="wxid" Type="int" />
+          <Property Name="qunId" Type="int" />
+          <Property Name="hongBaoName" Type="nvarchar" MaxLength="50" />
+          <Property Name="curCount" Type="int" />
+          <Property Name="count" Type="int" />
+          <Property Name="leiDian" Type="int" />
+          <Property Name="listMoney" Type="nvarchar" MaxLength="500" />
+          <Property Name="setdate" Type="datetime" />
+          <Property Name="Money" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="state" Type="int" />
+          <Property Name="jinqiang" Type="int" />
+          <Property Name="uid" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tb_hongBaoLingQu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="hongBaoId" Type="int" />
+          <Property Name="wxid" Type="int" />
+          <Property Name="money" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="setdate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tb_jiesuandetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="orderid" Type="bigint" />
+          <Property Name="orderdetailid" Type="int" />
+          <Property Name="uid" Type="nvarchar" MaxLength="50" />
+          <Property Name="setdate" Type="datetime" />
+          <Property Name="iszhuangjia" Type="int" />
+          <Property Name="xiazhu" Type="int" />
+          <Property Name="beishu" Type="int" />
+          <Property Name="mypk" Type="nvarchar" MaxLength="500" />
+          <Property Name="score" Type="int" />
+          <Property Name="roomid" Type="int" />
+          <Property Name="gametype" Type="nvarchar" MaxLength="50" />
+          <Property Name="paixing" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tb_JinQiangBaoMsg">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="money" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="setdate" Type="datetime" />
+          <Property Name="hongbaoid" Type="int" />
+        </EntityType>
+        <EntityType Name="tb_julebu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="uid" Type="nvarchar" MaxLength="50" />
+          <Property Name="julebuid" Type="int" />
+          <Property Name="julebuname" Type="nvarchar" MaxLength="50" />
+          <Property Name="setdate" Type="datetime" />
+          <Property Name="gametype" Type="nvarchar" MaxLength="50" />
+          <Property Name="roomtype" Type="int" />
+          <Property Name="guize" Type="text" />
+          <Property Name="fund" Type="int" />
+        </EntityType>
+        <EntityType Name="tb_julebuuser">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="julebuid" Type="int" />
+          <Property Name="uid" Type="nvarchar" MaxLength="50" />
+          <Property Name="gametype" Type="nvarchar" MaxLength="50" />
+          <Property Name="setdate" Type="datetime" />
+          <Property Name="status" Type="int" />
+          <Property Name="rank" Type="int" />
+          <Property Name="integral" Type="int" />
+        </EntityType>
+        <EntityType Name="tb_manager">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="role_type" Type="int" Nullable="false" />
+          <Property Name="user_name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="real_name" Type="nvarchar" MaxLength="255" />
+          <Property Name="telephone" Type="nvarchar" MaxLength="255" />
+          <Property Name="email" Type="nvarchar" MaxLength="255" />
+          <Property Name="is_lock" Type="int" />
+          <Property Name="addtime" Type="datetime" />
+          <Property Name="dailiid" Type="int" />
+          <Property Name="pwd" Type="nvarchar" MaxLength="255" />
+          <Property Name="yaoqingma" Type="int" />
+          <Property Name="last_id" Type="int" Nullable="false" />
+          <Property Name="fk" Type="int" Nullable="false" />
+          <Property Name="status" Type="int" Nullable="false" />
+          <Property Name="clubid" Type="int" />
+          <Property Name="number" Type="int" />
+          <Property Name="ip" Type="varchar" MaxLength="255" />
+          <Property Name="userid" Type="nvarchar" MaxLength="50" />
+          <Property Name="bling" Type="int" />
+          <Property Name="wx" Type="varchar" MaxLength="255" />
+          <Property Name="last_time" Type="datetime" />
+          <Property Name="money" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="gonggao" Type="nvarchar" MaxLength="4000" />
+          <Property Name="fanli" Type="int" />
+          <Property Name="last_last_id" Type="int" />
+          <Property Name="type" Type="int" />
+          <Property Name="job" Type="nvarchar" MaxLength="255" />
+          <Property Name="percent" Type="int" />
+          <Property Name="name" Type="nvarchar" MaxLength="255" />
+          <Property Name="id_number" Type="nvarchar" MaxLength="255" />
+          <Property Name="alipay" Type="nvarchar" MaxLength="255" />
+          <Property Name="bank" Type="nvarchar" MaxLength="255" />
+          <Property Name="qrcode" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6013: 表/视图“dafuwong.dbo.tb_msg”未定义主键，并且无法推断有效的主键。已排除了此表/视图。若要使用实体，将需要检查您的架构、添加正确的键并取消对实体的注释。
+        <EntityType Name="tb_msg">
+          <Property Name="id" Type="nvarchar" MaxLength="50" />
+          <Property Name="msg" Type="nvarchar" MaxLength="256" />
+          <Property Name="wxnumber" Type="nvarchar" MaxLength="255" />
+          <Property Name="qrcode" Type="nvarchar" MaxLength="255" />
+          <Property Name="buy_card" Type="nvarchar" MaxLength="500" />
+          <Property Name="agent" Type="nvarchar" MaxLength="500" />
+          <Property Name="message" Type="nvarchar" MaxLength="500" />
+          <Property Name="updatetime" Type="datetime" />
+          <Property Name="version" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="isAddGM" Type="int" />
+          <Property Name="tixian" Type="int" />
+          <Property Name="gmNum" Type="int" />
+          <Property Name="gmproba" Type="int" />
+          <Property Name="MJTax" Type="int" />
+          <Property Name="NNTax" Type="int" />
+          <Property Name="ZJHTax" Type="int" />
+          <Property Name="HBTax" Type="int" />
+          <Property Name="MJTax_match" Type="int" />
+          <Property Name="NNTax_match" Type="int" />
+          <Property Name="ZJHTax_match" Type="int" />
+          <Property Name="gameTax" Type="int" />
+          <Property Name="gailv" Type="int" />
+        </EntityType>-->
+        <EntityType Name="tb_MsgList">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="uid" Type="nvarchar" MaxLength="50" />
+          <Property Name="msg" Type="nvarchar" MaxLength="256" />
+          <Property Name="clp" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="createTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tb_online">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="online" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_option_ticheng">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="option_ticheng" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_pay_order">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="orderid" Type="nvarchar" MaxLength="50" />
+          <Property Name="money" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="addnum" Type="int" />
+          <Property Name="wxid" Type="int" />
+          <Property Name="customerip" Type="nvarchar" MaxLength="50" />
+          <Property Name="pingtai" Type="nvarchar" MaxLength="50" />
+          <Property Name="state" Type="int" />
+          <Property Name="setdate" Type="datetime" />
+          <Property Name="p5_orderid" Type="nvarchar" MaxLength="50" />
+          <Property Name="paytime" Type="datetime" />
+          <Property Name="tuijianma" Type="nvarchar" MaxLength="50" />
+          <Property Name="zftype" Type="int" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“dafuwong.dbo.tb_pay_pictures”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="tb_pay_pictures">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="wechat" Type="nvarchar" MaxLength="500" />
+          <Property Name="alipay" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="tb_pipei_data">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="roomName" Type="nvarchar" MaxLength="50" />
+          <Property Name="roomNameNumber" Type="int" />
+          <Property Name="diFen" Type="float" />
+          <Property Name="roomdengji" Type="int" />
+          <Property Name="xianZhi" Type="int" />
+          <Property Name="gametype" Type="int" />
+        </EntityType>
+        <EntityType Name="tb_prompt">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="255" />
+          <Property Name="problem" Type="nvarchar" MaxLength="255" />
+          <Property Name="complaint" Type="nvarchar" MaxLength="255" />
+          <Property Name="noPublic" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="tb_qunInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="qunId" Type="int" />
+          <Property Name="qunName" Type="nvarchar" MaxLength="50" />
+          <Property Name="qunImage" Type="nvarchar" MaxLength="500" />
+          <Property Name="qunSummary" Type="nvarchar" MaxLength="500" />
+          <Property Name="setdate" Type="datetime" />
+          <Property Name="qunGongGao" Type="nvarchar" MaxLength="50" />
+          <Property Name="qunNotice" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tb_QunUser">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="wxid" Type="int" />
+          <Property Name="qunId" Type="int" />
+          <Property Name="setdate" Type="datetime" />
+          <Property Name="aggreeTime" Type="datetime" />
+          <Property Name="state" Type="int" />
+          <Property Name="lastTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tb_recharge">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="account_id" Type="int" Nullable="false" />
+          <Property Name="rechargemoney" Type="int" Nullable="false" />
+          <Property Name="createtime" Type="datetime" Nullable="false" />
+          <Property Name="status" Type="int" Nullable="false" />
+          <Property Name="sn" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_request">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="255" />
+          <Property Name="count" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="time" Type="datetime" />
+          <Property Name="status" Type="int" />
+          <Property Name="wxid" Type="int" />
+          <Property Name="type" Type="varchar" MaxLength="255" />
+          <Property Name="card_num" Type="varchar" MaxLength="255" />
+          <Property Name="telephone" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="tb_robot">
+          <Key>
+            <PropertyRef Name="uid" />
+          </Key>
+          <Property Name="uid" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="createTime" Type="datetime" />
+          <Property Name="wxId" Type="int" />
+          <Property Name="username" Type="nvarchar" MaxLength="50" />
+          <Property Name="headimgurl" Type="nvarchar" MaxLength="500" />
+          <Property Name="sex" Type="nvarchar" MaxLength="50" />
+          <Property Name="jinbi" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“dafuwong.dbo.tb_tixian_detail”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="tb_tixian_detail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="wxid" Type="int" />
+          <Property Name="setdate" Type="datetime" />
+          <Property Name="taxNumber" Type="decimal" Precision="18" Scale="4" />
+        </EntityType>
+        <EntityType Name="tb_User">
+          <Key>
+            <PropertyRef Name="uid" />
+          </Key>
+          <Property Name="uid" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="createTime" Type="datetime" />
+          <Property Name="gold" Type="float" />
+          <Property Name="fk" Type="int" />
+          <Property Name="isrz" Type="int" />
+          <Property Name="grade" Type="int" />
+          <Property Name="tuijianma" Type="int" />
+          <Property Name="wxId" Type="int" />
+          <Property Name="qx" Type="int" />
+          <Property Name="admins" Type="int" />
+          <Property Name="username" Type="nvarchar" MaxLength="50" />
+          <Property Name="headimgurl" Type="nvarchar" MaxLength="500" />
+          <Property Name="ip" Type="nvarchar" MaxLength="50" />
+          <Property Name="black_list" Type="int" Nullable="false" />
+          <Property Name="all_golds" Type="int" />
+          <Property Name="realname" Type="nvarchar" MaxLength="50" />
+          <Property Name="phone" Type="varchar" MaxLength="255" />
+          <Property Name="country" Type="varchar" MaxLength="255" />
+          <Property Name="city" Type="varchar" MaxLength="255" />
+          <Property Name="bling" Type="int" />
+          <Property Name="last_time" Type="datetime" />
+          <Property Name="sex" Type="nvarchar" MaxLength="50" />
+          <Property Name="cardid" Type="nvarchar" MaxLength="50" />
+          <Property Name="wxnum" Type="nvarchar" MaxLength="50" />
+          <Property Name="tuijianwxid" Type="int" />
+          <Property Name="up_tuijianwxid" Type="int" />
+          <Property Name="online" Type="int" />
+          <Property Name="jinbi" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Lmima" Type="nvarchar" MaxLength="50" />
+          <Property Name="zhuCe" Type="int" />
+          <Property Name="isgm" Type="int" />
+        </EntityType>
+        <EntityType Name="tb_user_bank">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="banknum" Type="nvarchar" MaxLength="50" />
+          <Property Name="bankpwd" Type="nvarchar" MaxLength="50" />
+          <Property Name="setdate" Type="datetime" />
+          <Property Name="wxid" Type="int" />
+          <Property Name="jinbi" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="reaname" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tb_user_fangka">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dailiid" Type="int" />
+          <Property Name="tuijianwxid" Type="int" />
+          <Property Name="wxid" Type="int" />
+          <Property Name="openid" Type="nvarchar" MaxLength="500" />
+          <Property Name="prenum" Type="int" />
+          <Property Name="addnum" Type="int" />
+          <Property Name="currentnum" Type="int" />
+          <Property Name="summary" Type="nvarchar" MaxLength="50" />
+          <Property Name="setdate" Type="datetime" />
+          <Property Name="type" Type="int" />
+        </EntityType>
+        <EntityType Name="tb_user_fanli">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tuijianma" Type="int" />
+          <Property Name="chongzhiuid" Type="nvarchar" MaxLength="500" />
+          <Property Name="prefanli" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="addfanli" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="currentfanli" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="setdate" Type="datetime" />
+          <Property Name="summary" Type="nvarchar" MaxLength="500" />
+          <Property Name="money" Type="int" />
+        </EntityType>
+        <EntityType Name="tb_user_jiangli">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="wxid" Type="int" />
+          <Property Name="money" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="jiangliMoney" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="setdate" Type="datetime" />
+          <Property Name="type" Type="int" />
+          <Property Name="hongbaoid" Type="int" />
+        </EntityType>
+        <EntityType Name="tb_user_jiesuan">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="orderid" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="openid" Type="nvarchar" MaxLength="50" />
+          <Property Name="roomid" Type="int" />
+          <Property Name="zongdefen" Type="int" />
+          <Property Name="zimocount" Type="int" />
+          <Property Name="dianpaocount" Type="int" />
+          <Property Name="jiepaocount" Type="int" />
+          <Property Name="gangcountming" Type="int" />
+          <Property Name="gangcountan" Type="int" />
+          <Property Name="setdate" Type="datetime" />
+          <Property Name="gametype" Type="nvarchar" MaxLength="50" />
+          <Property Name="isdaikai" Type="int" />
+          <Property Name="fzwxid" Type="int" />
+          <Property Name="maxscore" Type="int" />
+          <Property Name="julebuid" Type="int" />
+          <Property Name="collection" Type="int" />
+          <Property Name="fee" Type="int" />
+          <Property Name="tax" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="tb_user_jinbi">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="uid" Type="nvarchar" MaxLength="50" />
+          <Property Name="prenum" Type="float" />
+          <Property Name="addnum" Type="float" />
+          <Property Name="currentnum" Type="float" />
+          <Property Name="summary" Type="nvarchar" MaxLength="50" />
+          <Property Name="setdate" Type="datetime" />
+          <Property Name="type" Type="int" />
+          <Property Name="yaoqingma" Type="int" />
+        </EntityType>
+        <EntityType Name="tb_user_LeiDetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="wxid" Type="int" />
+          <Property Name="otherWxid" Type="int" />
+          <Property Name="leidian" Type="int" />
+          <Property Name="money" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="setdate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tb_user_tixian">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="wxid" Type="int" />
+          <Property Name="jinbi" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="state" Type="int" />
+          <Property Name="setdate" Type="datetime" />
+          <Property Name="tax" Type="decimal" Precision="18" Scale="4" />
+        </EntityType>
+        <EntityType Name="tb_user_yaopai">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="uid" Type="nvarchar" MaxLength="50" />
+          <Property Name="quyu" Type="nvarchar" MaxLength="50" />
+          <Property Name="dianshu" Type="nvarchar" MaxLength="50" />
+          <Property Name="setdate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tb_userjiesuan">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="orderid" Type="bigint" />
+          <Property Name="uid" Type="nvarchar" MaxLength="50" />
+          <Property Name="setdate" Type="datetime" />
+          <Property Name="totalfen" Type="int" />
+          <Property Name="roomid" Type="nvarchar" MaxLength="50" />
+          <Property Name="roominfo" Type="nvarchar" MaxLength="2000" />
+          <Property Name="gametype" Type="nvarchar" MaxLength="50" />
+          <Property Name="qiangzhuangcount" Type="int" />
+          <Property Name="zuozhuangcount" Type="int" />
+          <Property Name="tuizhucount" Type="int" />
+          <Property Name="isfangzhu" Type="int" />
+          <Property Name="isdayingjia" Type="int" />
+          <Property Name="istuhao" Type="int" />
+          <Property Name="jushu" Type="int" />
+          <Property Name="wanfa" Type="nvarchar" MaxLength="50" />
+          <Property Name="difen" Type="nvarchar" MaxLength="50" />
+          <Property Name="fee" Type="int" />
+          <Property Name="tax" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <Function Name="getALLuser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="uid" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="getbili" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="float">
+          <Parameter Name="mytotalyeji" Type="decimal" Mode="In" />
+        </Function>
+        <Function Name="getfanli" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="float">
+          <Parameter Name="addnum" Type="int" Mode="In" />
+        </Function>
+        <Function Name="getJi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="uid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetJulebuid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="getMsgList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="uid" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="getUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="uid" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="GetUserDayYeJi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="date" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="GetUserWxid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GETYaoqingma" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="DFWModelStoreContainer">
+          <EntitySet Name="manager" EntityType="Self.manager" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="manager_role" EntityType="Self.manager_role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="manager_role_value" EntityType="Self.manager_role_value" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="navigation" EntityType="Self.navigation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_ChatDetail" EntityType="Self.tb_ChatDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_choushui" EntityType="Self.tb_choushui" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_fankui" EntityType="Self.tb_fankui" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_game_detail" EntityType="Self.tb_game_detail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_gameRecords" EntityType="Self.tb_gameRecords" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_hongBao" EntityType="Self.tb_hongBao" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_hongBaoLingQu" EntityType="Self.tb_hongBaoLingQu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_jiesuandetail" EntityType="Self.tb_jiesuandetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_JinQiangBaoMsg" EntityType="Self.tb_JinQiangBaoMsg" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_julebu" EntityType="Self.tb_julebu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_julebuuser" EntityType="Self.tb_julebuuser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_manager" EntityType="Self.tb_manager" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_MsgList" EntityType="Self.tb_MsgList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_online" EntityType="Self.tb_online" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_option_ticheng" EntityType="Self.tb_option_ticheng" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_pay_order" EntityType="Self.tb_pay_order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_pipei_data" EntityType="Self.tb_pipei_data" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_prompt" EntityType="Self.tb_prompt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_qunInfo" EntityType="Self.tb_qunInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_QunUser" EntityType="Self.tb_QunUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_recharge" EntityType="Self.tb_recharge" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_request" EntityType="Self.tb_request" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_robot" EntityType="Self.tb_robot" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_User" EntityType="Self.tb_User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_user_bank" EntityType="Self.tb_user_bank" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_user_fangka" EntityType="Self.tb_user_fangka" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_user_fanli" EntityType="Self.tb_user_fanli" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_user_jiangli" EntityType="Self.tb_user_jiangli" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_user_jiesuan" EntityType="Self.tb_user_jiesuan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_user_jinbi" EntityType="Self.tb_user_jinbi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_user_LeiDetail" EntityType="Self.tb_user_LeiDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_user_tixian" EntityType="Self.tb_user_tixian" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_user_yaopai" EntityType="Self.tb_user_yaopai" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_userjiesuan" EntityType="Self.tb_userjiesuan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_pay_pictures" EntityType="Self.tb_pay_pictures" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tb_pay_pictures].[id] AS [id], 
+    [tb_pay_pictures].[wechat] AS [wechat], 
+    [tb_pay_pictures].[alipay] AS [alipay]
+    FROM [dbo].[tb_pay_pictures] AS [tb_pay_pictures]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tb_tixian_detail" EntityType="Self.tb_tixian_detail" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tb_tixian_detail].[id] AS [id], 
+    [tb_tixian_detail].[wxid] AS [wxid], 
+    [tb_tixian_detail].[setdate] AS [setdate], 
+    [tb_tixian_detail].[taxNumber] AS [taxNumber]
+    FROM [dbo].[tb_tixian_detail] AS [tb_tixian_detail]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DFWModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="manager">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="role_id" Type="Int32" />
+          <Property Name="role_type" Type="Int32" />
+          <Property Name="user_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="salt" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="real_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="telephone" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="is_lock" Type="Int32" />
+          <Property Name="add_time" Type="DateTime" Precision="3" />
+          <Property Name="dailiid" Type="Int32" />
+          <Property Name="qunid" Type="Int32" />
+          <Property Name="pwd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fanli" Type="Int32" />
+          <Property Name="money" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="tuijianma" Type="Int32" />
+          <Property Name="parent_id" Type="Int32" />
+          <Property Name="agentLevel" Type="Int32" />
+        </EntityType>
+        <EntityType Name="manager_role">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="role_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="role_type" Type="Byte" />
+          <Property Name="is_sys" Type="Byte" />
+        </EntityType>
+        <EntityType Name="manager_role_value">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="role_id" Type="Int32" />
+          <Property Name="nav_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="action_type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="nav_id" Type="Int32" />
+        </EntityType>
+        <EntityType Name="navigation">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="parent_id" Type="Int32" />
+          <Property Name="channel_id" Type="Int32" />
+          <Property Name="nav_type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="sub_title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="icon_url" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="link_url" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="sort_id" Type="Int32" />
+          <Property Name="is_lock" Type="Byte" />
+          <Property Name="remark" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="action_type" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="is_sys" Type="Byte" />
+        </EntityType>
+        <EntityType Name="tb_ChatDetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ChatType" Type="Int32" />
+          <Property Name="SendWxid" Type="Int32" />
+          <Property Name="SendUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SendUserImage" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="HongBaoId" Type="Int32" />
+          <Property Name="HongBaoName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SendTime" Type="DateTime" Precision="3" />
+          <Property Name="qunId" Type="Int32" />
+          <Property Name="faName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="lingName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="lingWxid" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tb_choushui">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="wxid" Type="Int32" />
+          <Property Name="jinbi" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="summary" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="setdate" Type="DateTime" Precision="3" />
+          <Property Name="tuijianma" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tb_fankui">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uid" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="fankuitype" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="content" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="setdate" Type="DateTime" Precision="3" />
+          <Property Name="lianxi" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tb_game_detail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="orderid" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="orderdetailid" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="openid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="roomid" Type="Int32" />
+          <Property Name="iszhuang" Type="Int32" />
+          <Property Name="ishu" Type="Int32" />
+          <Property Name="isting" Type="Int32" />
+          <Property Name="hufen" Type="Int32" />
+          <Property Name="gangfen" Type="Int32" />
+          <Property Name="caguafen" Type="Int32" />
+          <Property Name="zongfen" Type="Int32" />
+          <Property Name="gangcountming" Type="Int32" />
+          <Property Name="gangcountan" Type="Int32" />
+          <Property Name="pengganginfo" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="setdate" Type="DateTime" Precision="3" />
+          <Property Name="gametype" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mashu" Type="Int32" />
+          <Property Name="caguainfo" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="mypk" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="fanshu" Type="Int32" />
+          <Property Name="fanshuname" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="gen" Type="Int32" />
+          <Property Name="hutype" Type="Int32" />
+          <Property Name="dianpaouid" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="zimouid" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="chadajiaouid" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="hutime" Type="DateTime" Precision="3" />
+          <Property Name="defendetail" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="shufendetail" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="huashu" Type="Int32" />
+          <Property Name="julebuid" Type="Int32" />
+          <Property Name="istaopao" Type="Int32" />
+          <Property Name="fzwxid" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tb_gameRecords">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="roomId" Type="Int32" Nullable="false" />
+          <Property Name="gameRecords" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="stateTime" Type="DateTime" Precision="3" />
+          <Property Name="orderId" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="round" Type="Int32" />
+          <Property Name="julebuid" Type="Int32" />
+          <Property Name="roomtype" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tb_hongBao">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="wxid" Type="Int32" />
+          <Property Name="qunId" Type="Int32" />
+          <Property Name="hongBaoName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="curCount" Type="Int32" />
+          <Property Name="count" Type="Int32" />
+          <Property Name="leiDian" Type="Int32" />
+          <Property Name="listMoney" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="setdate" Type="DateTime" Precision="3" />
+          <Property Name="Money" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="state" Type="Int32" />
+          <Property Name="jinqiang" Type="Int32" />
+          <Property Name="uid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tb_hongBaoLingQu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="hongBaoId" Type="Int32" />
+          <Property Name="wxid" Type="Int32" />
+          <Property Name="money" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="setdate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tb_jiesuandetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="orderid" Type="Int64" />
+          <Property Name="orderdetailid" Type="Int32" />
+          <Property Name="uid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="setdate" Type="DateTime" Precision="3" />
+          <Property Name="iszhuangjia" Type="Int32" />
+          <Property Name="xiazhu" Type="Int32" />
+          <Property Name="beishu" Type="Int32" />
+          <Property Name="mypk" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="score" Type="Int32" />
+          <Property Name="roomid" Type="Int32" />
+          <Property Name="gametype" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="paixing" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tb_JinQiangBaoMsg">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="money" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="setdate" Type="DateTime" Precision="3" />
+          <Property Name="hongbaoid" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tb_julebu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="julebuid" Type="Int32" />
+          <Property Name="julebuname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="setdate" Type="DateTime" Precision="3" />
+          <Property Name="gametype" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="roomtype" Type="Int32" />
+          <Property Name="guize" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="fund" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tb_julebuuser">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="julebuid" Type="Int32" />
+          <Property Name="uid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="gametype" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="setdate" Type="DateTime" Precision="3" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="rank" Type="Int32" />
+          <Property Name="integral" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tb_manager">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="role_type" Type="Int32" Nullable="false" />
+          <Property Name="user_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="real_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="telephone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="is_lock" Type="Int32" />
+          <Property Name="addtime" Type="DateTime" Precision="3" />
+          <Property Name="dailiid" Type="Int32" />
+          <Property Name="pwd" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="yaoqingma" Type="Int32" />
+          <Property Name="last_id" Type="Int32" Nullable="false" />
+          <Property Name="fk" Type="Int32" Nullable="false" />
+          <Property Name="status" Type="Int32" Nullable="false" />
+          <Property Name="clubid" Type="Int32" />
+          <Property Name="number" Type="Int32" />
+          <Property Name="ip" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="userid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="bling" Type="Int32" />
+          <Property Name="wx" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="last_time" Type="DateTime" Precision="3" />
+          <Property Name="money" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="gonggao" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="fanli" Type="Int32" />
+          <Property Name="last_last_id" Type="Int32" />
+          <Property Name="type" Type="Int32" />
+          <Property Name="job" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="percent" Type="Int32" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="id_number" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="alipay" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="bank" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="qrcode" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tb_MsgList">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="msg" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="clp" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="createTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tb_online">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="online" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_option_ticheng">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="option_ticheng" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_pay_order">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="orderid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="money" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="addnum" Type="Int32" />
+          <Property Name="wxid" Type="Int32" />
+          <Property Name="customerip" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pingtai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="state" Type="Int32" />
+          <Property Name="setdate" Type="DateTime" Precision="3" />
+          <Property Name="p5_orderid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="paytime" Type="DateTime" Precision="3" />
+          <Property Name="tuijianma" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="zftype" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tb_pipei_data">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="roomName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="roomNameNumber" Type="Int32" />
+          <Property Name="diFen" Type="Double" />
+          <Property Name="roomdengji" Type="Int32" />
+          <Property Name="xianZhi" Type="Int32" />
+          <Property Name="gametype" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tb_prompt">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="problem" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="complaint" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="noPublic" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tb_qunInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="qunId" Type="Int32" />
+          <Property Name="qunName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="qunImage" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="qunSummary" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="setdate" Type="DateTime" Precision="3" />
+          <Property Name="qunGongGao" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="qunNotice" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tb_QunUser">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="wxid" Type="Int32" />
+          <Property Name="qunId" Type="Int32" />
+          <Property Name="setdate" Type="DateTime" Precision="3" />
+          <Property Name="aggreeTime" Type="DateTime" Precision="3" />
+          <Property Name="state" Type="Int32" />
+          <Property Name="lastTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tb_recharge">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="account_id" Type="Int32" Nullable="false" />
+          <Property Name="rechargemoney" Type="Int32" Nullable="false" />
+          <Property Name="createtime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="status" Type="Int32" Nullable="false" />
+          <Property Name="sn" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_request">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="count" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="time" Type="DateTime" Precision="3" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="wxid" Type="Int32" />
+          <Property Name="type" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="card_num" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="telephone" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tb_robot">
+          <Key>
+            <PropertyRef Name="uid" />
+          </Key>
+          <Property Name="uid" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="createTime" Type="DateTime" Precision="3" />
+          <Property Name="wxId" Type="Int32" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="headimgurl" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="sex" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="jinbi" Type="Decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="tb_User">
+          <Key>
+            <PropertyRef Name="uid" />
+          </Key>
+          <Property Name="uid" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="createTime" Type="DateTime" Precision="3" />
+          <Property Name="gold" Type="Double" />
+          <Property Name="fk" Type="Int32" />
+          <Property Name="isrz" Type="Int32" />
+          <Property Name="grade" Type="Int32" />
+          <Property Name="tuijianma" Type="Int32" />
+          <Property Name="wxId" Type="Int32" />
+          <Property Name="qx" Type="Int32" />
+          <Property Name="admins" Type="Int32" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="headimgurl" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ip" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="black_list" Type="Int32" Nullable="false" />
+          <Property Name="all_golds" Type="Int32" />
+          <Property Name="realname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="phone" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="country" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="city" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="bling" Type="Int32" />
+          <Property Name="last_time" Type="DateTime" Precision="3" />
+          <Property Name="sex" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cardid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="wxnum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="tuijianwxid" Type="Int32" />
+          <Property Name="up_tuijianwxid" Type="Int32" />
+          <Property Name="online" Type="Int32" />
+          <Property Name="jinbi" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Lmima" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="zhuCe" Type="Int32" />
+          <Property Name="isgm" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tb_user_bank">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="banknum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="bankpwd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="setdate" Type="DateTime" Precision="3" />
+          <Property Name="wxid" Type="Int32" />
+          <Property Name="jinbi" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="reaname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tb_user_fangka">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dailiid" Type="Int32" />
+          <Property Name="tuijianwxid" Type="Int32" />
+          <Property Name="wxid" Type="Int32" />
+          <Property Name="openid" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="prenum" Type="Int32" />
+          <Property Name="addnum" Type="Int32" />
+          <Property Name="currentnum" Type="Int32" />
+          <Property Name="summary" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="setdate" Type="DateTime" Precision="3" />
+          <Property Name="type" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tb_user_fanli">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tuijianma" Type="Int32" />
+          <Property Name="chongzhiuid" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="prefanli" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="addfanli" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="currentfanli" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="setdate" Type="DateTime" Precision="3" />
+          <Property Name="summary" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="money" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tb_user_jiangli">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="wxid" Type="Int32" />
+          <Property Name="money" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="jiangliMoney" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="setdate" Type="DateTime" Precision="3" />
+          <Property Name="type" Type="Int32" />
+          <Property Name="hongbaoid" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tb_user_jiesuan">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="orderid" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="openid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="roomid" Type="Int32" />
+          <Property Name="zongdefen" Type="Int32" />
+          <Property Name="zimocount" Type="Int32" />
+          <Property Name="dianpaocount" Type="Int32" />
+          <Property Name="jiepaocount" Type="Int32" />
+          <Property Name="gangcountming" Type="Int32" />
+          <Property Name="gangcountan" Type="Int32" />
+          <Property Name="setdate" Type="DateTime" Precision="3" />
+          <Property Name="gametype" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="isdaikai" Type="Int32" />
+          <Property Name="fzwxid" Type="Int32" />
+          <Property Name="maxscore" Type="Int32" />
+          <Property Name="julebuid" Type="Int32" />
+          <Property Name="collection" Type="Int32" />
+          <Property Name="fee" Type="Int32" />
+          <Property Name="tax" Type="Decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="tb_user_jinbi">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="prenum" Type="Double" />
+          <Property Name="addnum" Type="Double" />
+          <Property Name="currentnum" Type="Double" />
+          <Property Name="summary" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="setdate" Type="DateTime" Precision="3" />
+          <Property Name="type" Type="Int32" />
+          <Property Name="yaoqingma" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tb_user_LeiDetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="wxid" Type="Int32" />
+          <Property Name="otherWxid" Type="Int32" />
+          <Property Name="leidian" Type="Int32" />
+          <Property Name="money" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="setdate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tb_user_tixian">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="wxid" Type="Int32" />
+          <Property Name="jinbi" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="state" Type="Int32" />
+          <Property Name="setdate" Type="DateTime" Precision="3" />
+          <Property Name="tax" Type="Decimal" Precision="18" Scale="4" />
+        </EntityType>
+        <EntityType Name="tb_user_yaopai">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="quyu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="dianshu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="setdate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tb_userjiesuan">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="orderid" Type="Int64" />
+          <Property Name="uid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="setdate" Type="DateTime" Precision="3" />
+          <Property Name="totalfen" Type="Int32" />
+          <Property Name="roomid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="roominfo" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="gametype" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="qiangzhuangcount" Type="Int32" />
+          <Property Name="zuozhuangcount" Type="Int32" />
+          <Property Name="tuizhucount" Type="Int32" />
+          <Property Name="isfangzhu" Type="Int32" />
+          <Property Name="isdayingjia" Type="Int32" />
+          <Property Name="istuhao" Type="Int32" />
+          <Property Name="jushu" Type="Int32" />
+          <Property Name="wanfa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="difen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fee" Type="Int32" />
+          <Property Name="tax" Type="Decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="tb_pay_pictures">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="wechat" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="alipay" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tb_tixian_detail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="wxid" Type="Int32" />
+          <Property Name="setdate" Type="DateTime" Precision="3" />
+          <Property Name="taxNumber" Type="Decimal" Precision="18" Scale="4" />
+        </EntityType>
+        <EntityContainer Name="dafuwongEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="manager" EntityType="Self.manager" />
+          <EntitySet Name="manager_role" EntityType="Self.manager_role" />
+          <EntitySet Name="manager_role_value" EntityType="Self.manager_role_value" />
+          <EntitySet Name="navigation" EntityType="Self.navigation" />
+          <EntitySet Name="tb_ChatDetail" EntityType="Self.tb_ChatDetail" />
+          <EntitySet Name="tb_choushui" EntityType="Self.tb_choushui" />
+          <EntitySet Name="tb_fankui" EntityType="Self.tb_fankui" />
+          <EntitySet Name="tb_game_detail" EntityType="Self.tb_game_detail" />
+          <EntitySet Name="tb_gameRecords" EntityType="Self.tb_gameRecords" />
+          <EntitySet Name="tb_hongBao" EntityType="Self.tb_hongBao" />
+          <EntitySet Name="tb_hongBaoLingQu" EntityType="Self.tb_hongBaoLingQu" />
+          <EntitySet Name="tb_jiesuandetail" EntityType="Self.tb_jiesuandetail" />
+          <EntitySet Name="tb_JinQiangBaoMsg" EntityType="Self.tb_JinQiangBaoMsg" />
+          <EntitySet Name="tb_julebu" EntityType="Self.tb_julebu" />
+          <EntitySet Name="tb_julebuuser" EntityType="Self.tb_julebuuser" />
+          <EntitySet Name="tb_manager" EntityType="Self.tb_manager" />
+          <EntitySet Name="tb_MsgList" EntityType="Self.tb_MsgList" />
+          <EntitySet Name="tb_online" EntityType="Self.tb_online" />
+          <EntitySet Name="tb_option_ticheng" EntityType="Self.tb_option_ticheng" />
+          <EntitySet Name="tb_pay_order" EntityType="Self.tb_pay_order" />
+          <EntitySet Name="tb_pipei_data" EntityType="Self.tb_pipei_data" />
+          <EntitySet Name="tb_prompt" EntityType="Self.tb_prompt" />
+          <EntitySet Name="tb_qunInfo" EntityType="Self.tb_qunInfo" />
+          <EntitySet Name="tb_QunUser" EntityType="Self.tb_QunUser" />
+          <EntitySet Name="tb_recharge" EntityType="Self.tb_recharge" />
+          <EntitySet Name="tb_request" EntityType="Self.tb_request" />
+          <EntitySet Name="tb_robot" EntityType="Self.tb_robot" />
+          <EntitySet Name="tb_User" EntityType="Self.tb_User" />
+          <EntitySet Name="tb_user_bank" EntityType="Self.tb_user_bank" />
+          <EntitySet Name="tb_user_fangka" EntityType="Self.tb_user_fangka" />
+          <EntitySet Name="tb_user_fanli" EntityType="Self.tb_user_fanli" />
+          <EntitySet Name="tb_user_jiangli" EntityType="Self.tb_user_jiangli" />
+          <EntitySet Name="tb_user_jiesuan" EntityType="Self.tb_user_jiesuan" />
+          <EntitySet Name="tb_user_jinbi" EntityType="Self.tb_user_jinbi" />
+          <EntitySet Name="tb_user_LeiDetail" EntityType="Self.tb_user_LeiDetail" />
+          <EntitySet Name="tb_user_tixian" EntityType="Self.tb_user_tixian" />
+          <EntitySet Name="tb_user_yaopai" EntityType="Self.tb_user_yaopai" />
+          <EntitySet Name="tb_userjiesuan" EntityType="Self.tb_userjiesuan" />
+          <EntitySet Name="tb_pay_pictures" EntityType="Self.tb_pay_pictures" />
+          <EntitySet Name="tb_tixian_detail" EntityType="Self.tb_tixian_detail" />
+          <FunctionImport Name="getALLuser" ReturnType="Collection(DFWModel.getALLuser_Result)">
+            <Parameter Name="uid" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="getJi">
+            <Parameter Name="uid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetJulebuid" ReturnType="Collection(Int32)" />
+          <FunctionImport Name="getMsgList" ReturnType="Collection(DFWModel.getMsgList_Result)">
+            <Parameter Name="uid" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="getUser" ReturnType="Collection(DFWModel.getUser_Result)">
+            <Parameter Name="uid" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetUserDayYeJi">
+            <Parameter Name="date" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="GetUserWxid" ReturnType="Collection(Int32)" />
+          <FunctionImport Name="GETYaoqingma" ReturnType="Collection(Int32)" />
+        </EntityContainer>
+        <ComplexType Name="getALLuser_Result">
+          <Property Type="String" Name="uid" Nullable="false" MaxLength="128" />
+          <Property Type="DateTime" Name="createTime" Nullable="true" Precision="23" />
+          <Property Type="Double" Name="gold" Nullable="true" />
+          <Property Type="Int32" Name="fk" Nullable="true" />
+          <Property Type="Int32" Name="isrz" Nullable="true" />
+          <Property Type="Int32" Name="grade" Nullable="true" />
+          <Property Type="Int32" Name="tuijianma" Nullable="true" />
+          <Property Type="Int32" Name="wxId" Nullable="true" />
+          <Property Type="Int32" Name="qx" Nullable="true" />
+          <Property Type="Int32" Name="admins" Nullable="true" />
+          <Property Type="String" Name="username" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="headimgurl" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="ip" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="black_list" Nullable="false" />
+          <Property Type="Int32" Name="all_golds" Nullable="true" />
+          <Property Type="String" Name="realname" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="phone" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="country" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="city" Nullable="true" MaxLength="255" />
+          <Property Type="Int32" Name="bling" Nullable="true" />
+          <Property Type="DateTime" Name="last_time" Nullable="true" Precision="23" />
+          <Property Type="String" Name="sex" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="cardid" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="wxnum" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="tuijianwxid" Nullable="true" />
+          <Property Type="Int32" Name="up_tuijianwxid" Nullable="true" />
+          <Property Type="Int32" Name="online" Nullable="true" />
+          <Property Type="Decimal" Name="jinbi" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="String" Name="Lmima" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="zhuCe" Nullable="true" />
+          <Property Type="Int32" Name="isgm" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="getMsgList_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="uid" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="msg" Nullable="true" MaxLength="256" />
+          <Property Type="Int32" Name="clp" Nullable="true" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="createTime" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="getUser_Result">
+          <Property Type="String" Name="uid" Nullable="false" MaxLength="128" />
+          <Property Type="DateTime" Name="createTime" Nullable="true" Precision="23" />
+          <Property Type="Double" Name="gold" Nullable="true" />
+          <Property Type="Int32" Name="fk" Nullable="true" />
+          <Property Type="Int32" Name="isrz" Nullable="true" />
+          <Property Type="Int32" Name="grade" Nullable="true" />
+          <Property Type="Int32" Name="tuijianma" Nullable="true" />
+          <Property Type="Int32" Name="wxId" Nullable="true" />
+          <Property Type="Int32" Name="qx" Nullable="true" />
+          <Property Type="Int32" Name="admins" Nullable="true" />
+          <Property Type="String" Name="username" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="headimgurl" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="ip" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="black_list" Nullable="false" />
+          <Property Type="Int32" Name="all_golds" Nullable="true" />
+          <Property Type="String" Name="realname" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="phone" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="country" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="city" Nullable="true" MaxLength="255" />
+          <Property Type="Int32" Name="bling" Nullable="true" />
+          <Property Type="DateTime" Name="last_time" Nullable="true" Precision="23" />
+          <Property Type="String" Name="sex" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="cardid" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="wxnum" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="tuijianwxid" Nullable="true" />
+          <Property Type="Int32" Name="up_tuijianwxid" Nullable="true" />
+          <Property Type="Int32" Name="online" Nullable="true" />
+          <Property Type="Decimal" Name="jinbi" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="String" Name="Lmima" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="zhuCe" Nullable="true" />
+          <Property Type="Int32" Name="isgm" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DFWModelStoreContainer" CdmEntityContainer="dafuwongEntities">
+          <EntitySetMapping Name="manager">
+            <EntityTypeMapping TypeName="DFWModel.manager">
+              <MappingFragment StoreEntitySet="manager">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="role_id" ColumnName="role_id" />
+                <ScalarProperty Name="role_type" ColumnName="role_type" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="salt" ColumnName="salt" />
+                <ScalarProperty Name="real_name" ColumnName="real_name" />
+                <ScalarProperty Name="telephone" ColumnName="telephone" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="is_lock" ColumnName="is_lock" />
+                <ScalarProperty Name="add_time" ColumnName="add_time" />
+                <ScalarProperty Name="dailiid" ColumnName="dailiid" />
+                <ScalarProperty Name="qunid" ColumnName="qunid" />
+                <ScalarProperty Name="pwd" ColumnName="pwd" />
+                <ScalarProperty Name="fanli" ColumnName="fanli" />
+                <ScalarProperty Name="money" ColumnName="money" />
+                <ScalarProperty Name="tuijianma" ColumnName="tuijianma" />
+                <ScalarProperty Name="parent_id" ColumnName="parent_id" />
+                <ScalarProperty Name="agentLevel" ColumnName="agentLevel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="manager_role">
+            <EntityTypeMapping TypeName="DFWModel.manager_role">
+              <MappingFragment StoreEntitySet="manager_role">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="role_name" ColumnName="role_name" />
+                <ScalarProperty Name="role_type" ColumnName="role_type" />
+                <ScalarProperty Name="is_sys" ColumnName="is_sys" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="manager_role_value">
+            <EntityTypeMapping TypeName="DFWModel.manager_role_value">
+              <MappingFragment StoreEntitySet="manager_role_value">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="role_id" ColumnName="role_id" />
+                <ScalarProperty Name="nav_name" ColumnName="nav_name" />
+                <ScalarProperty Name="action_type" ColumnName="action_type" />
+                <ScalarProperty Name="nav_id" ColumnName="nav_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="navigation">
+            <EntityTypeMapping TypeName="DFWModel.navigation">
+              <MappingFragment StoreEntitySet="navigation">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="parent_id" ColumnName="parent_id" />
+                <ScalarProperty Name="channel_id" ColumnName="channel_id" />
+                <ScalarProperty Name="nav_type" ColumnName="nav_type" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="sub_title" ColumnName="sub_title" />
+                <ScalarProperty Name="icon_url" ColumnName="icon_url" />
+                <ScalarProperty Name="link_url" ColumnName="link_url" />
+                <ScalarProperty Name="sort_id" ColumnName="sort_id" />
+                <ScalarProperty Name="is_lock" ColumnName="is_lock" />
+                <ScalarProperty Name="remark" ColumnName="remark" />
+                <ScalarProperty Name="action_type" ColumnName="action_type" />
+                <ScalarProperty Name="is_sys" ColumnName="is_sys" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_ChatDetail">
+            <EntityTypeMapping TypeName="DFWModel.tb_ChatDetail">
+              <MappingFragment StoreEntitySet="tb_ChatDetail">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ChatType" ColumnName="ChatType" />
+                <ScalarProperty Name="SendWxid" ColumnName="SendWxid" />
+                <ScalarProperty Name="SendUserName" ColumnName="SendUserName" />
+                <ScalarProperty Name="SendUserImage" ColumnName="SendUserImage" />
+                <ScalarProperty Name="HongBaoId" ColumnName="HongBaoId" />
+                <ScalarProperty Name="HongBaoName" ColumnName="HongBaoName" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="SendTime" ColumnName="SendTime" />
+                <ScalarProperty Name="qunId" ColumnName="qunId" />
+                <ScalarProperty Name="faName" ColumnName="faName" />
+                <ScalarProperty Name="lingName" ColumnName="lingName" />
+                <ScalarProperty Name="lingWxid" ColumnName="lingWxid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_choushui">
+            <EntityTypeMapping TypeName="DFWModel.tb_choushui">
+              <MappingFragment StoreEntitySet="tb_choushui">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="wxid" ColumnName="wxid" />
+                <ScalarProperty Name="jinbi" ColumnName="jinbi" />
+                <ScalarProperty Name="summary" ColumnName="summary" />
+                <ScalarProperty Name="setdate" ColumnName="setdate" />
+                <ScalarProperty Name="tuijianma" ColumnName="tuijianma" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_fankui">
+            <EntityTypeMapping TypeName="DFWModel.tb_fankui">
+              <MappingFragment StoreEntitySet="tb_fankui">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="fankuitype" ColumnName="fankuitype" />
+                <ScalarProperty Name="content" ColumnName="content" />
+                <ScalarProperty Name="setdate" ColumnName="setdate" />
+                <ScalarProperty Name="lianxi" ColumnName="lianxi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_game_detail">
+            <EntityTypeMapping TypeName="DFWModel.tb_game_detail">
+              <MappingFragment StoreEntitySet="tb_game_detail">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="orderid" ColumnName="orderid" />
+                <ScalarProperty Name="orderdetailid" ColumnName="orderdetailid" />
+                <ScalarProperty Name="openid" ColumnName="openid" />
+                <ScalarProperty Name="roomid" ColumnName="roomid" />
+                <ScalarProperty Name="iszhuang" ColumnName="iszhuang" />
+                <ScalarProperty Name="ishu" ColumnName="ishu" />
+                <ScalarProperty Name="isting" ColumnName="isting" />
+                <ScalarProperty Name="hufen" ColumnName="hufen" />
+                <ScalarProperty Name="gangfen" ColumnName="gangfen" />
+                <ScalarProperty Name="caguafen" ColumnName="caguafen" />
+                <ScalarProperty Name="zongfen" ColumnName="zongfen" />
+                <ScalarProperty Name="gangcountming" ColumnName="gangcountming" />
+                <ScalarProperty Name="gangcountan" ColumnName="gangcountan" />
+                <ScalarProperty Name="pengganginfo" ColumnName="pengganginfo" />
+                <ScalarProperty Name="setdate" ColumnName="setdate" />
+                <ScalarProperty Name="gametype" ColumnName="gametype" />
+                <ScalarProperty Name="mashu" ColumnName="mashu" />
+                <ScalarProperty Name="caguainfo" ColumnName="caguainfo" />
+                <ScalarProperty Name="mypk" ColumnName="mypk" />
+                <ScalarProperty Name="fanshu" ColumnName="fanshu" />
+                <ScalarProperty Name="fanshuname" ColumnName="fanshuname" />
+                <ScalarProperty Name="gen" ColumnName="gen" />
+                <ScalarProperty Name="hutype" ColumnName="hutype" />
+                <ScalarProperty Name="dianpaouid" ColumnName="dianpaouid" />
+                <ScalarProperty Name="zimouid" ColumnName="zimouid" />
+                <ScalarProperty Name="chadajiaouid" ColumnName="chadajiaouid" />
+                <ScalarProperty Name="hutime" ColumnName="hutime" />
+                <ScalarProperty Name="defendetail" ColumnName="defendetail" />
+                <ScalarProperty Name="shufendetail" ColumnName="shufendetail" />
+                <ScalarProperty Name="huashu" ColumnName="huashu" />
+                <ScalarProperty Name="julebuid" ColumnName="julebuid" />
+                <ScalarProperty Name="istaopao" ColumnName="istaopao" />
+                <ScalarProperty Name="fzwxid" ColumnName="fzwxid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_gameRecords">
+            <EntityTypeMapping TypeName="DFWModel.tb_gameRecords">
+              <MappingFragment StoreEntitySet="tb_gameRecords">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="roomId" ColumnName="roomId" />
+                <ScalarProperty Name="gameRecords" ColumnName="gameRecords" />
+                <ScalarProperty Name="stateTime" ColumnName="stateTime" />
+                <ScalarProperty Name="orderId" ColumnName="orderId" />
+                <ScalarProperty Name="round" ColumnName="round" />
+                <ScalarProperty Name="julebuid" ColumnName="julebuid" />
+                <ScalarProperty Name="roomtype" ColumnName="roomtype" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_hongBao">
+            <EntityTypeMapping TypeName="DFWModel.tb_hongBao">
+              <MappingFragment StoreEntitySet="tb_hongBao">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="wxid" ColumnName="wxid" />
+                <ScalarProperty Name="qunId" ColumnName="qunId" />
+                <ScalarProperty Name="hongBaoName" ColumnName="hongBaoName" />
+                <ScalarProperty Name="curCount" ColumnName="curCount" />
+                <ScalarProperty Name="count" ColumnName="count" />
+                <ScalarProperty Name="leiDian" ColumnName="leiDian" />
+                <ScalarProperty Name="listMoney" ColumnName="listMoney" />
+                <ScalarProperty Name="setdate" ColumnName="setdate" />
+                <ScalarProperty Name="Money" ColumnName="Money" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="jinqiang" ColumnName="jinqiang" />
+                <ScalarProperty Name="uid" ColumnName="uid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_hongBaoLingQu">
+            <EntityTypeMapping TypeName="DFWModel.tb_hongBaoLingQu">
+              <MappingFragment StoreEntitySet="tb_hongBaoLingQu">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="hongBaoId" ColumnName="hongBaoId" />
+                <ScalarProperty Name="wxid" ColumnName="wxid" />
+                <ScalarProperty Name="money" ColumnName="money" />
+                <ScalarProperty Name="setdate" ColumnName="setdate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_jiesuandetail">
+            <EntityTypeMapping TypeName="DFWModel.tb_jiesuandetail">
+              <MappingFragment StoreEntitySet="tb_jiesuandetail">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="orderid" ColumnName="orderid" />
+                <ScalarProperty Name="orderdetailid" ColumnName="orderdetailid" />
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="setdate" ColumnName="setdate" />
+                <ScalarProperty Name="iszhuangjia" ColumnName="iszhuangjia" />
+                <ScalarProperty Name="xiazhu" ColumnName="xiazhu" />
+                <ScalarProperty Name="beishu" ColumnName="beishu" />
+                <ScalarProperty Name="mypk" ColumnName="mypk" />
+                <ScalarProperty Name="score" ColumnName="score" />
+                <ScalarProperty Name="roomid" ColumnName="roomid" />
+                <ScalarProperty Name="gametype" ColumnName="gametype" />
+                <ScalarProperty Name="paixing" ColumnName="paixing" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_JinQiangBaoMsg">
+            <EntityTypeMapping TypeName="DFWModel.tb_JinQiangBaoMsg">
+              <MappingFragment StoreEntitySet="tb_JinQiangBaoMsg">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="money" ColumnName="money" />
+                <ScalarProperty Name="setdate" ColumnName="setdate" />
+                <ScalarProperty Name="hongbaoid" ColumnName="hongbaoid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_julebu">
+            <EntityTypeMapping TypeName="DFWModel.tb_julebu">
+              <MappingFragment StoreEntitySet="tb_julebu">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="julebuid" ColumnName="julebuid" />
+                <ScalarProperty Name="julebuname" ColumnName="julebuname" />
+                <ScalarProperty Name="setdate" ColumnName="setdate" />
+                <ScalarProperty Name="gametype" ColumnName="gametype" />
+                <ScalarProperty Name="roomtype" ColumnName="roomtype" />
+                <ScalarProperty Name="guize" ColumnName="guize" />
+                <ScalarProperty Name="fund" ColumnName="fund" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_julebuuser">
+            <EntityTypeMapping TypeName="DFWModel.tb_julebuuser">
+              <MappingFragment StoreEntitySet="tb_julebuuser">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="julebuid" ColumnName="julebuid" />
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="gametype" ColumnName="gametype" />
+                <ScalarProperty Name="setdate" ColumnName="setdate" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="rank" ColumnName="rank" />
+                <ScalarProperty Name="integral" ColumnName="integral" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_manager">
+            <EntityTypeMapping TypeName="DFWModel.tb_manager">
+              <MappingFragment StoreEntitySet="tb_manager">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="role_type" ColumnName="role_type" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="real_name" ColumnName="real_name" />
+                <ScalarProperty Name="telephone" ColumnName="telephone" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="is_lock" ColumnName="is_lock" />
+                <ScalarProperty Name="addtime" ColumnName="addtime" />
+                <ScalarProperty Name="dailiid" ColumnName="dailiid" />
+                <ScalarProperty Name="pwd" ColumnName="pwd" />
+                <ScalarProperty Name="yaoqingma" ColumnName="yaoqingma" />
+                <ScalarProperty Name="last_id" ColumnName="last_id" />
+                <ScalarProperty Name="fk" ColumnName="fk" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="clubid" ColumnName="clubid" />
+                <ScalarProperty Name="number" ColumnName="number" />
+                <ScalarProperty Name="ip" ColumnName="ip" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="bling" ColumnName="bling" />
+                <ScalarProperty Name="wx" ColumnName="wx" />
+                <ScalarProperty Name="last_time" ColumnName="last_time" />
+                <ScalarProperty Name="money" ColumnName="money" />
+                <ScalarProperty Name="gonggao" ColumnName="gonggao" />
+                <ScalarProperty Name="fanli" ColumnName="fanli" />
+                <ScalarProperty Name="last_last_id" ColumnName="last_last_id" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="job" ColumnName="job" />
+                <ScalarProperty Name="percent" ColumnName="percent" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id_number" ColumnName="id_number" />
+                <ScalarProperty Name="alipay" ColumnName="alipay" />
+                <ScalarProperty Name="bank" ColumnName="bank" />
+                <ScalarProperty Name="qrcode" ColumnName="qrcode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_MsgList">
+            <EntityTypeMapping TypeName="DFWModel.tb_MsgList">
+              <MappingFragment StoreEntitySet="tb_MsgList">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="msg" ColumnName="msg" />
+                <ScalarProperty Name="clp" ColumnName="clp" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="createTime" ColumnName="createTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_online">
+            <EntityTypeMapping TypeName="DFWModel.tb_online">
+              <MappingFragment StoreEntitySet="tb_online">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="online" ColumnName="online" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_option_ticheng">
+            <EntityTypeMapping TypeName="DFWModel.tb_option_ticheng">
+              <MappingFragment StoreEntitySet="tb_option_ticheng">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="option_ticheng" ColumnName="option_ticheng" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_pay_order">
+            <EntityTypeMapping TypeName="DFWModel.tb_pay_order">
+              <MappingFragment StoreEntitySet="tb_pay_order">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="orderid" ColumnName="orderid" />
+                <ScalarProperty Name="money" ColumnName="money" />
+                <ScalarProperty Name="addnum" ColumnName="addnum" />
+                <ScalarProperty Name="wxid" ColumnName="wxid" />
+                <ScalarProperty Name="customerip" ColumnName="customerip" />
+                <ScalarProperty Name="pingtai" ColumnName="pingtai" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="setdate" ColumnName="setdate" />
+                <ScalarProperty Name="p5_orderid" ColumnName="p5_orderid" />
+                <ScalarProperty Name="paytime" ColumnName="paytime" />
+                <ScalarProperty Name="tuijianma" ColumnName="tuijianma" />
+                <ScalarProperty Name="zftype" ColumnName="zftype" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_pipei_data">
+            <EntityTypeMapping TypeName="DFWModel.tb_pipei_data">
+              <MappingFragment StoreEntitySet="tb_pipei_data">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="roomName" ColumnName="roomName" />
+                <ScalarProperty Name="roomNameNumber" ColumnName="roomNameNumber" />
+                <ScalarProperty Name="diFen" ColumnName="diFen" />
+                <ScalarProperty Name="roomdengji" ColumnName="roomdengji" />
+                <ScalarProperty Name="xianZhi" ColumnName="xianZhi" />
+                <ScalarProperty Name="gametype" ColumnName="gametype" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_prompt">
+            <EntityTypeMapping TypeName="DFWModel.tb_prompt">
+              <MappingFragment StoreEntitySet="tb_prompt">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="problem" ColumnName="problem" />
+                <ScalarProperty Name="complaint" ColumnName="complaint" />
+                <ScalarProperty Name="noPublic" ColumnName="noPublic" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_qunInfo">
+            <EntityTypeMapping TypeName="DFWModel.tb_qunInfo">
+              <MappingFragment StoreEntitySet="tb_qunInfo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="qunId" ColumnName="qunId" />
+                <ScalarProperty Name="qunName" ColumnName="qunName" />
+                <ScalarProperty Name="qunImage" ColumnName="qunImage" />
+                <ScalarProperty Name="qunSummary" ColumnName="qunSummary" />
+                <ScalarProperty Name="setdate" ColumnName="setdate" />
+                <ScalarProperty Name="qunGongGao" ColumnName="qunGongGao" />
+                <ScalarProperty Name="qunNotice" ColumnName="qunNotice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_QunUser">
+            <EntityTypeMapping TypeName="DFWModel.tb_QunUser">
+              <MappingFragment StoreEntitySet="tb_QunUser">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="wxid" ColumnName="wxid" />
+                <ScalarProperty Name="qunId" ColumnName="qunId" />
+                <ScalarProperty Name="setdate" ColumnName="setdate" />
+                <ScalarProperty Name="aggreeTime" ColumnName="aggreeTime" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="lastTime" ColumnName="lastTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_recharge">
+            <EntityTypeMapping TypeName="DFWModel.tb_recharge">
+              <MappingFragment StoreEntitySet="tb_recharge">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="account_id" ColumnName="account_id" />
+                <ScalarProperty Name="rechargemoney" ColumnName="rechargemoney" />
+                <ScalarProperty Name="createtime" ColumnName="createtime" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="sn" ColumnName="sn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_request">
+            <EntityTypeMapping TypeName="DFWModel.tb_request">
+              <MappingFragment StoreEntitySet="tb_request">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="count" ColumnName="count" />
+                <ScalarProperty Name="time" ColumnName="time" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="wxid" ColumnName="wxid" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="card_num" ColumnName="card_num" />
+                <ScalarProperty Name="telephone" ColumnName="telephone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_robot">
+            <EntityTypeMapping TypeName="DFWModel.tb_robot">
+              <MappingFragment StoreEntitySet="tb_robot">
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="createTime" ColumnName="createTime" />
+                <ScalarProperty Name="wxId" ColumnName="wxId" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="headimgurl" ColumnName="headimgurl" />
+                <ScalarProperty Name="sex" ColumnName="sex" />
+                <ScalarProperty Name="jinbi" ColumnName="jinbi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_User">
+            <EntityTypeMapping TypeName="DFWModel.tb_User">
+              <MappingFragment StoreEntitySet="tb_User">
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="createTime" ColumnName="createTime" />
+                <ScalarProperty Name="gold" ColumnName="gold" />
+                <ScalarProperty Name="fk" ColumnName="fk" />
+                <ScalarProperty Name="isrz" ColumnName="isrz" />
+                <ScalarProperty Name="grade" ColumnName="grade" />
+                <ScalarProperty Name="tuijianma" ColumnName="tuijianma" />
+                <ScalarProperty Name="wxId" ColumnName="wxId" />
+                <ScalarProperty Name="qx" ColumnName="qx" />
+                <ScalarProperty Name="admins" ColumnName="admins" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="headimgurl" ColumnName="headimgurl" />
+                <ScalarProperty Name="ip" ColumnName="ip" />
+                <ScalarProperty Name="black_list" ColumnName="black_list" />
+                <ScalarProperty Name="all_golds" ColumnName="all_golds" />
+                <ScalarProperty Name="realname" ColumnName="realname" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="bling" ColumnName="bling" />
+                <ScalarProperty Name="last_time" ColumnName="last_time" />
+                <ScalarProperty Name="sex" ColumnName="sex" />
+                <ScalarProperty Name="cardid" ColumnName="cardid" />
+                <ScalarProperty Name="wxnum" ColumnName="wxnum" />
+                <ScalarProperty Name="tuijianwxid" ColumnName="tuijianwxid" />
+                <ScalarProperty Name="up_tuijianwxid" ColumnName="up_tuijianwxid" />
+                <ScalarProperty Name="online" ColumnName="online" />
+                <ScalarProperty Name="jinbi" ColumnName="jinbi" />
+                <ScalarProperty Name="Lmima" ColumnName="Lmima" />
+                <ScalarProperty Name="zhuCe" ColumnName="zhuCe" />
+                <ScalarProperty Name="isgm" ColumnName="isgm" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_user_bank">
+            <EntityTypeMapping TypeName="DFWModel.tb_user_bank">
+              <MappingFragment StoreEntitySet="tb_user_bank">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="banknum" ColumnName="banknum" />
+                <ScalarProperty Name="bankpwd" ColumnName="bankpwd" />
+                <ScalarProperty Name="setdate" ColumnName="setdate" />
+                <ScalarProperty Name="wxid" ColumnName="wxid" />
+                <ScalarProperty Name="jinbi" ColumnName="jinbi" />
+                <ScalarProperty Name="reaname" ColumnName="reaname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_user_fangka">
+            <EntityTypeMapping TypeName="DFWModel.tb_user_fangka">
+              <MappingFragment StoreEntitySet="tb_user_fangka">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="dailiid" ColumnName="dailiid" />
+                <ScalarProperty Name="tuijianwxid" ColumnName="tuijianwxid" />
+                <ScalarProperty Name="wxid" ColumnName="wxid" />
+                <ScalarProperty Name="openid" ColumnName="openid" />
+                <ScalarProperty Name="prenum" ColumnName="prenum" />
+                <ScalarProperty Name="addnum" ColumnName="addnum" />
+                <ScalarProperty Name="currentnum" ColumnName="currentnum" />
+                <ScalarProperty Name="summary" ColumnName="summary" />
+                <ScalarProperty Name="setdate" ColumnName="setdate" />
+                <ScalarProperty Name="type" ColumnName="type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_user_fanli">
+            <EntityTypeMapping TypeName="DFWModel.tb_user_fanli">
+              <MappingFragment StoreEntitySet="tb_user_fanli">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="tuijianma" ColumnName="tuijianma" />
+                <ScalarProperty Name="chongzhiuid" ColumnName="chongzhiuid" />
+                <ScalarProperty Name="prefanli" ColumnName="prefanli" />
+                <ScalarProperty Name="addfanli" ColumnName="addfanli" />
+                <ScalarProperty Name="currentfanli" ColumnName="currentfanli" />
+                <ScalarProperty Name="setdate" ColumnName="setdate" />
+                <ScalarProperty Name="summary" ColumnName="summary" />
+                <ScalarProperty Name="money" ColumnName="money" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_user_jiangli">
+            <EntityTypeMapping TypeName="DFWModel.tb_user_jiangli">
+              <MappingFragment StoreEntitySet="tb_user_jiangli">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="wxid" ColumnName="wxid" />
+                <ScalarProperty Name="money" ColumnName="money" />
+                <ScalarProperty Name="jiangliMoney" ColumnName="jiangliMoney" />
+                <ScalarProperty Name="setdate" ColumnName="setdate" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="hongbaoid" ColumnName="hongbaoid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_user_jiesuan">
+            <EntityTypeMapping TypeName="DFWModel.tb_user_jiesuan">
+              <MappingFragment StoreEntitySet="tb_user_jiesuan">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="orderid" ColumnName="orderid" />
+                <ScalarProperty Name="openid" ColumnName="openid" />
+                <ScalarProperty Name="roomid" ColumnName="roomid" />
+                <ScalarProperty Name="zongdefen" ColumnName="zongdefen" />
+                <ScalarProperty Name="zimocount" ColumnName="zimocount" />
+                <ScalarProperty Name="dianpaocount" ColumnName="dianpaocount" />
+                <ScalarProperty Name="jiepaocount" ColumnName="jiepaocount" />
+                <ScalarProperty Name="gangcountming" ColumnName="gangcountming" />
+                <ScalarProperty Name="gangcountan" ColumnName="gangcountan" />
+                <ScalarProperty Name="setdate" ColumnName="setdate" />
+                <ScalarProperty Name="gametype" ColumnName="gametype" />
+                <ScalarProperty Name="isdaikai" ColumnName="isdaikai" />
+                <ScalarProperty Name="fzwxid" ColumnName="fzwxid" />
+                <ScalarProperty Name="maxscore" ColumnName="maxscore" />
+                <ScalarProperty Name="julebuid" ColumnName="julebuid" />
+                <ScalarProperty Name="collection" ColumnName="collection" />
+                <ScalarProperty Name="fee" ColumnName="fee" />
+                <ScalarProperty Name="tax" ColumnName="tax" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_user_jinbi">
+            <EntityTypeMapping TypeName="DFWModel.tb_user_jinbi">
+              <MappingFragment StoreEntitySet="tb_user_jinbi">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="prenum" ColumnName="prenum" />
+                <ScalarProperty Name="addnum" ColumnName="addnum" />
+                <ScalarProperty Name="currentnum" ColumnName="currentnum" />
+                <ScalarProperty Name="summary" ColumnName="summary" />
+                <ScalarProperty Name="setdate" ColumnName="setdate" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="yaoqingma" ColumnName="yaoqingma" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_user_LeiDetail">
+            <EntityTypeMapping TypeName="DFWModel.tb_user_LeiDetail">
+              <MappingFragment StoreEntitySet="tb_user_LeiDetail">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="wxid" ColumnName="wxid" />
+                <ScalarProperty Name="otherWxid" ColumnName="otherWxid" />
+                <ScalarProperty Name="leidian" ColumnName="leidian" />
+                <ScalarProperty Name="money" ColumnName="money" />
+                <ScalarProperty Name="setdate" ColumnName="setdate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_user_tixian">
+            <EntityTypeMapping TypeName="DFWModel.tb_user_tixian">
+              <MappingFragment StoreEntitySet="tb_user_tixian">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="wxid" ColumnName="wxid" />
+                <ScalarProperty Name="jinbi" ColumnName="jinbi" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="setdate" ColumnName="setdate" />
+                <ScalarProperty Name="tax" ColumnName="tax" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_user_yaopai">
+            <EntityTypeMapping TypeName="DFWModel.tb_user_yaopai">
+              <MappingFragment StoreEntitySet="tb_user_yaopai">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="quyu" ColumnName="quyu" />
+                <ScalarProperty Name="dianshu" ColumnName="dianshu" />
+                <ScalarProperty Name="setdate" ColumnName="setdate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_userjiesuan">
+            <EntityTypeMapping TypeName="DFWModel.tb_userjiesuan">
+              <MappingFragment StoreEntitySet="tb_userjiesuan">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="orderid" ColumnName="orderid" />
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="setdate" ColumnName="setdate" />
+                <ScalarProperty Name="totalfen" ColumnName="totalfen" />
+                <ScalarProperty Name="roomid" ColumnName="roomid" />
+                <ScalarProperty Name="roominfo" ColumnName="roominfo" />
+                <ScalarProperty Name="gametype" ColumnName="gametype" />
+                <ScalarProperty Name="qiangzhuangcount" ColumnName="qiangzhuangcount" />
+                <ScalarProperty Name="zuozhuangcount" ColumnName="zuozhuangcount" />
+                <ScalarProperty Name="tuizhucount" ColumnName="tuizhucount" />
+                <ScalarProperty Name="isfangzhu" ColumnName="isfangzhu" />
+                <ScalarProperty Name="isdayingjia" ColumnName="isdayingjia" />
+                <ScalarProperty Name="istuhao" ColumnName="istuhao" />
+                <ScalarProperty Name="jushu" ColumnName="jushu" />
+                <ScalarProperty Name="wanfa" ColumnName="wanfa" />
+                <ScalarProperty Name="difen" ColumnName="difen" />
+                <ScalarProperty Name="fee" ColumnName="fee" />
+                <ScalarProperty Name="tax" ColumnName="tax" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_pay_pictures">
+            <EntityTypeMapping TypeName="DFWModel.tb_pay_pictures">
+              <MappingFragment StoreEntitySet="tb_pay_pictures">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="wechat" ColumnName="wechat" />
+                <ScalarProperty Name="alipay" ColumnName="alipay" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_tixian_detail">
+            <EntityTypeMapping TypeName="DFWModel.tb_tixian_detail">
+              <MappingFragment StoreEntitySet="tb_tixian_detail">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="wxid" ColumnName="wxid" />
+                <ScalarProperty Name="setdate" ColumnName="setdate" />
+                <ScalarProperty Name="taxNumber" ColumnName="taxNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="getALLuser" FunctionName="DFWModel.Store.getALLuser">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DFWModel.getALLuser_Result">
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="createTime" ColumnName="createTime" />
+                <ScalarProperty Name="gold" ColumnName="gold" />
+                <ScalarProperty Name="fk" ColumnName="fk" />
+                <ScalarProperty Name="isrz" ColumnName="isrz" />
+                <ScalarProperty Name="grade" ColumnName="grade" />
+                <ScalarProperty Name="tuijianma" ColumnName="tuijianma" />
+                <ScalarProperty Name="wxId" ColumnName="wxId" />
+                <ScalarProperty Name="qx" ColumnName="qx" />
+                <ScalarProperty Name="admins" ColumnName="admins" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="headimgurl" ColumnName="headimgurl" />
+                <ScalarProperty Name="ip" ColumnName="ip" />
+                <ScalarProperty Name="black_list" ColumnName="black_list" />
+                <ScalarProperty Name="all_golds" ColumnName="all_golds" />
+                <ScalarProperty Name="realname" ColumnName="realname" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="bling" ColumnName="bling" />
+                <ScalarProperty Name="last_time" ColumnName="last_time" />
+                <ScalarProperty Name="sex" ColumnName="sex" />
+                <ScalarProperty Name="cardid" ColumnName="cardid" />
+                <ScalarProperty Name="wxnum" ColumnName="wxnum" />
+                <ScalarProperty Name="tuijianwxid" ColumnName="tuijianwxid" />
+                <ScalarProperty Name="up_tuijianwxid" ColumnName="up_tuijianwxid" />
+                <ScalarProperty Name="online" ColumnName="online" />
+                <ScalarProperty Name="jinbi" ColumnName="jinbi" />
+                <ScalarProperty Name="Lmima" ColumnName="Lmima" />
+                <ScalarProperty Name="zhuCe" ColumnName="zhuCe" />
+                <ScalarProperty Name="isgm" ColumnName="isgm" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getJi" FunctionName="DFWModel.Store.getJi" />
+          <FunctionImportMapping FunctionImportName="GetJulebuid" FunctionName="DFWModel.Store.GetJulebuid" />
+          <FunctionImportMapping FunctionImportName="getMsgList" FunctionName="DFWModel.Store.getMsgList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DFWModel.getMsgList_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="msg" ColumnName="msg" />
+                <ScalarProperty Name="clp" ColumnName="clp" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="createTime" ColumnName="createTime" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getUser" FunctionName="DFWModel.Store.getUser">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DFWModel.getUser_Result">
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="createTime" ColumnName="createTime" />
+                <ScalarProperty Name="gold" ColumnName="gold" />
+                <ScalarProperty Name="fk" ColumnName="fk" />
+                <ScalarProperty Name="isrz" ColumnName="isrz" />
+                <ScalarProperty Name="grade" ColumnName="grade" />
+                <ScalarProperty Name="tuijianma" ColumnName="tuijianma" />
+                <ScalarProperty Name="wxId" ColumnName="wxId" />
+                <ScalarProperty Name="qx" ColumnName="qx" />
+                <ScalarProperty Name="admins" ColumnName="admins" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="headimgurl" ColumnName="headimgurl" />
+                <ScalarProperty Name="ip" ColumnName="ip" />
+                <ScalarProperty Name="black_list" ColumnName="black_list" />
+                <ScalarProperty Name="all_golds" ColumnName="all_golds" />
+                <ScalarProperty Name="realname" ColumnName="realname" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="bling" ColumnName="bling" />
+                <ScalarProperty Name="last_time" ColumnName="last_time" />
+                <ScalarProperty Name="sex" ColumnName="sex" />
+                <ScalarProperty Name="cardid" ColumnName="cardid" />
+                <ScalarProperty Name="wxnum" ColumnName="wxnum" />
+                <ScalarProperty Name="tuijianwxid" ColumnName="tuijianwxid" />
+                <ScalarProperty Name="up_tuijianwxid" ColumnName="up_tuijianwxid" />
+                <ScalarProperty Name="online" ColumnName="online" />
+                <ScalarProperty Name="jinbi" ColumnName="jinbi" />
+                <ScalarProperty Name="Lmima" ColumnName="Lmima" />
+                <ScalarProperty Name="zhuCe" ColumnName="zhuCe" />
+                <ScalarProperty Name="isgm" ColumnName="isgm" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetUserDayYeJi" FunctionName="DFWModel.Store.GetUserDayYeJi" />
+          <FunctionImportMapping FunctionImportName="GetUserWxid" FunctionName="DFWModel.Store.GetUserWxid" />
+          <FunctionImportMapping FunctionImportName="GETYaoqingma" FunctionName="DFWModel.Store.GETYaoqingma" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

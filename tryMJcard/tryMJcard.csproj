@@ -1,0 +1,275 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{41039716-EA91-40B6-9484-FFA3AD89F699}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>tryMJcard</RootNamespace>
+    <AssemblyName>tryMJcard</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="com.lib.qyhd">
+      <HintPath>dll\com.lib.qyhd.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UnityEngine">
+      <HintPath>dll\UnityEngine.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Socket\AppRespose.cs" />
+    <Compile Include="Socket\BufferManager.cs" />
+    <Compile Include="Socket\ClientConnection.cs" />
+    <Compile Include="SQL\SQLTest.cs" />
+    <Compile Include="Tool\Tool\CloneExtends.cs" />
+    <Compile Include="Tool\Tool\Expand.cs" />
+    <Compile Include="Log\File.cs" />
+    <Compile Include="Tool\GameTool\GameRecords.cs" />
+    <Compile Include="SQL\getALLuser_Result.cs">
+      <DependentUpon>SqlEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL\getMsgList_Result.cs">
+      <DependentUpon>SqlEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL\getUser_Result.cs">
+      <DependentUpon>SqlEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tool\GameTool\HuHelper.cs" />
+    <Compile Include="Log\LogManager.cs" />
+    <Compile Include="Tool\GameTool\MaJong.cs" />
+    <Compile Include="SQL\manager.cs">
+      <DependentUpon>SqlEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL\manager_role.cs">
+      <DependentUpon>SqlEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL\manager_role_value.cs">
+      <DependentUpon>SqlEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Socket\MessageStream.cs" />
+    <Compile Include="Tool\Tool\MonoSingleton.cs" />
+    <Compile Include="SQL\navigation.cs">
+      <DependentUpon>SqlEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tool\Tool\PermutationAndCombination.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Socket\SendRespose.cs" />
+    <Compile Include="SQL\Sign_in.cs" />
+    <Compile Include="Tool\Tool\Singleton.cs" />
+    <Compile Include="Socket\SocketPool.cs" />
+    <Compile Include="Socket\SocketTool.cs" />
+    <Compile Include="SQL\SqlEntity.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SqlEntity.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL\SqlEntity.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SqlEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL\SqlEntity.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SqlEntity.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="SQL\SqlHelp.cs" />
+    <Compile Include="Test.cs" />
+    <Compile Include="SQL\tb_ChatDetail.cs">
+      <DependentUpon>SqlEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL\tb_choushui.cs">
+      <DependentUpon>SqlEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL\tb_fankui.cs">
+      <DependentUpon>SqlEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL\tb_gameRecords.cs">
+      <DependentUpon>SqlEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL\tb_game_detail.cs">
+      <DependentUpon>SqlEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL\tb_hongBao.cs">
+      <DependentUpon>SqlEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL\tb_hongBaoLingQu.cs">
+      <DependentUpon>SqlEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL\tb_jiesuandetail.cs">
+      <DependentUpon>SqlEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL\tb_JinQiangBaoMsg.cs">
+      <DependentUpon>SqlEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL\tb_julebu.cs">
+      <DependentUpon>SqlEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL\tb_julebuuser.cs">
+      <DependentUpon>SqlEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL\tb_manager.cs">
+      <DependentUpon>SqlEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL\tb_MsgList.cs">
+      <DependentUpon>SqlEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL\tb_online.cs">
+      <DependentUpon>SqlEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL\tb_option_ticheng.cs">
+      <DependentUpon>SqlEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL\tb_pay_order.cs">
+      <DependentUpon>SqlEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL\tb_pay_pictures.cs">
+      <DependentUpon>SqlEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL\tb_pipei_data.cs">
+      <DependentUpon>SqlEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL\tb_prompt.cs">
+      <DependentUpon>SqlEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL\tb_qunInfo.cs">
+      <DependentUpon>SqlEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL\tb_QunUser.cs">
+      <DependentUpon>SqlEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL\tb_recharge.cs">
+      <DependentUpon>SqlEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL\tb_request.cs">
+      <DependentUpon>SqlEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL\tb_robot.cs">
+      <DependentUpon>SqlEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL\tb_tixian_detail.cs">
+      <DependentUpon>SqlEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL\tb_User.cs">
+      <DependentUpon>SqlEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL\tb_userjiesuan.cs">
+      <DependentUpon>SqlEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL\tb_user_bank.cs">
+      <DependentUpon>SqlEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL\tb_user_fangka.cs">
+      <DependentUpon>SqlEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL\tb_user_fanli.cs">
+      <DependentUpon>SqlEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL\tb_user_jiangli.cs">
+      <DependentUpon>SqlEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL\tb_user_jiesuan.cs">
+      <DependentUpon>SqlEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL\tb_user_jinbi.cs">
+      <DependentUpon>SqlEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL\tb_user_LeiDetail.cs">
+      <DependentUpon>SqlEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL\tb_user_tixian.cs">
+      <DependentUpon>SqlEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SQL\tb_user_yaopai.cs">
+      <DependentUpon>SqlEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tool\Tool\TimerManage.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Tool\Tool\UIManager.cs" />
+    <Compile Include="Socket\User.cs" />
+    <Compile Include="XMLManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <EntityDeploy Include="SQL\SqlEntity.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SqlEntity.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="SQL\SqlEntity.edmx.diagram">
+      <DependentUpon>SqlEntity.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SQL\SqlEntity.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SqlEntity.edmx</DependentUpon>
+      <LastGenOutput>SqlEntity.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="SQL\SqlEntity.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SqlEntity.edmx</DependentUpon>
+      <LastGenOutput>SqlEntity.cs</LastGenOutput>
+    </Content>
+    <Content Include="XMLFile1.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
