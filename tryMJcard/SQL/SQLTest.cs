@@ -18,7 +18,7 @@ namespace tryMJcard.SQL
         public static List<string> imageList = new List<string>();
         #endregion
 
-        public static SQLTest()
+        static SQLTest()
         {
             SqlStartInit();
         }

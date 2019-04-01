@@ -13,3 +13,17 @@ D:\用户目录\我的文档\Visual Studio 2013\Projects\tryMJcard\tryMJcard\bin
 D:\用户目录\我的文档\Visual Studio 2013\Projects\tryMJcard\tryMJcard\bin\Debug\EntityFramework.xml
 D:\用户目录\我的文档\Visual Studio 2013\Projects\tryMJcard\tryMJcard\bin\Debug\EntityFramework.SqlServer.xml
 D:\用户目录\我的文档\Visual Studio 2013\Projects\tryMJcard\tryMJcard\bin\Debug\zh-Hans\EntityFramework.resources.dll
+D:\用户目录\我的文档\Visual Studio 2013\Projects\tryMJcard\test\tryMJcard\bin\Debug\tryMJcard.exe.config
+D:\用户目录\我的文档\Visual Studio 2013\Projects\tryMJcard\test\tryMJcard\obj\Debug\tryMJcard.exe
+D:\用户目录\我的文档\Visual Studio 2013\Projects\tryMJcard\test\tryMJcard\obj\Debug\tryMJcard.pdb
+D:\用户目录\我的文档\Visual Studio 2013\Projects\tryMJcard\test\tryMJcard\bin\Debug\tryMJcard.exe
+D:\用户目录\我的文档\Visual Studio 2013\Projects\tryMJcard\test\tryMJcard\bin\Debug\tryMJcard.pdb
+D:\用户目录\我的文档\Visual Studio 2013\Projects\tryMJcard\test\tryMJcard\bin\Debug\com.lib.qyhd.dll
+D:\用户目录\我的文档\Visual Studio 2013\Projects\tryMJcard\test\tryMJcard\bin\Debug\EntityFramework.dll
+D:\用户目录\我的文档\Visual Studio 2013\Projects\tryMJcard\test\tryMJcard\bin\Debug\EntityFramework.SqlServer.dll
+D:\用户目录\我的文档\Visual Studio 2013\Projects\tryMJcard\test\tryMJcard\bin\Debug\log4net.dll
+D:\用户目录\我的文档\Visual Studio 2013\Projects\tryMJcard\test\tryMJcard\bin\Debug\UnityEngine.dll
+D:\用户目录\我的文档\Visual Studio 2013\Projects\tryMJcard\test\tryMJcard\bin\Debug\EntityFramework.xml
+D:\用户目录\我的文档\Visual Studio 2013\Projects\tryMJcard\test\tryMJcard\bin\Debug\EntityFramework.SqlServer.xml
+D:\用户目录\我的文档\Visual Studio 2013\Projects\tryMJcard\test\tryMJcard\bin\Debug\log4net.xml
+D:\用户目录\我的文档\Visual Studio 2013\Projects\tryMJcard\test\tryMJcard\bin\Debug\zh-Hans\EntityFramework.resources.dll
