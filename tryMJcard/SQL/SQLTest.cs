@@ -58,7 +58,6 @@ namespace tryMJcard.SQL
                 {
                     Console.WriteLine(list[i].name);
                 }
-                int a = 0;
             }
             Logger.Log("ADO.Net test is end......");
         }

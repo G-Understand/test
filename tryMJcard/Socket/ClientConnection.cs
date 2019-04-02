@@ -83,7 +83,7 @@ namespace tryMJcard
                     }
                     catch (Exception s)
                     {
-                        //Loggers.Log(this.GetType(), s.StackTrace);
+                        Logger.Log(this.GetType(), s.StackTrace);
                     }
                 }
             }

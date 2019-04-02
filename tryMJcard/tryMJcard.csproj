@@ -63,6 +63,9 @@
     <Compile Include="Socket\BufferManager.cs" />
     <Compile Include="Socket\ClientConnection.cs" />
     <Compile Include="SQL\SQLTest.cs" />
+    <Compile Include="Tool\GameTool\CardTypeCalculation.cs" />
+    <Compile Include="Tool\GameTool\DataStructure.cs" />
+    <Compile Include="Tool\GameTool\DouNiuPdType.cs" />
     <Compile Include="Tool\Tool\CloneExtends.cs" />
     <Compile Include="Tool\Tool\Expand.cs" />
     <Compile Include="Log\File.cs" />

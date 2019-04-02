@@ -53,6 +53,7 @@ namespace tryMJcard
             }
             catch (Exception ex)
             {
+                LogManagerSimple.WriteLog_Gui(ex.Message, DateTime.Now.ToString("yyyyMMdd") + "_" + 123);
                 return 0;
             }
 

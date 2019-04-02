@@ -174,9 +174,18 @@ namespace tryMJcard
             });
         }
 
+        private static void createDir(string dirPath)
+        {
+            if (!Directory.Exists(dirPath))
+                Directory.CreateDirectory(dirPath);
+        }
         //如果没有指定文件路径则在运行路径下建立 Log\{loggerName}.txt
         private static string GetFile(string category, string loggerName)
         {
+            string path = System.AppDomain.CurrentDomain.BaseDirectory + "Log\\" + DateTime.Now.ToString("yyyyMM") + "\\SystemLog\\" + DateTime.Now.ToString("yyyyMMdd") + "\\";
+            createDir(path);
+            return string.Format(@"{0}\{1}.log", path, loggerName);
+
             if (string.IsNullOrEmpty(category))
             {
                 return string.Format(@"Log\{0}.txt", loggerName);

@@ -56,8 +56,7 @@ namespace tryMJcard
             }
             catch (Exception e)
             {
-                //Loggers.Log(typeof(AppRespose), e.Message);
-
+                Logger.Log(typeof(AppRespose), e.Message);
             }
 
         }
