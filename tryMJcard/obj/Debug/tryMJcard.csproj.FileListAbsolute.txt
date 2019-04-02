@@ -27,3 +27,4 @@ D:\用户目录\我的文档\Visual Studio 2013\Projects\tryMJcard\test\tryMJcar
 D:\用户目录\我的文档\Visual Studio 2013\Projects\tryMJcard\test\tryMJcard\bin\Debug\EntityFramework.SqlServer.xml
 D:\用户目录\我的文档\Visual Studio 2013\Projects\tryMJcard\test\tryMJcard\bin\Debug\log4net.xml
 D:\用户目录\我的文档\Visual Studio 2013\Projects\tryMJcard\test\tryMJcard\bin\Debug\zh-Hans\EntityFramework.resources.dll
+D:\用户目录\我的文档\Visual Studio 2013\Projects\tryMJcard\test\tryMJcard\obj\Debug\tryMJcard.csprojResolveAssemblyReference.cache

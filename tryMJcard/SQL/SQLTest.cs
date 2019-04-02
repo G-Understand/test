@@ -18,16 +18,6 @@ namespace tryMJcard.SQL
         public static List<string> imageList = new List<string>();
         #endregion
 
-        static SQLTest()
-        {
-            SqlStartInit();
-        }
-
-        public static void SqlStartInit()
-        {
-            SqlHelp.Instance.Init("Server=.;Database=xw;Uid=sa;Pwd=123456;");//and setdate>dateadd(day,-3,getdate())
-        }
-
         /// <summary>
         /// ADO.Net 测试
         /// </summary>

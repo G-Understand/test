@@ -18,6 +18,7 @@ namespace tryMJcard
         {
             string time = DateTime.Now.ToString("yyyy-MM-dd HH:mm");
             Console.Title = DateTime.Now.ToString("yyyy-MM-dd HH:mmLss") + "===>" + " 该程序为工具和一些基类 ";
+            SqlHelp.Instance.Init("Server=.;Database=xw;Uid=sa;Pwd=123456;");//and setdate>dateadd(day,-3,getdate())
         }
 
         static void Main(string[] args)
