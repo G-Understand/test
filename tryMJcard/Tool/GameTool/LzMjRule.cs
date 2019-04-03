@@ -1176,10 +1176,10 @@ namespace tryMJcard.Tool.GameTool
                         {
                             //如果可与当前值 组成顺子的牌有2个，则需要癞子一个
                             #region  如果可与当前值 组成顺子的牌有2个，则需要癞子一个
-                            if (!youxianduizi)
-                            {
-                                var d = 0;
-                            }
+//                             if (!youxianduizi)
+//                             {
+//                                 var d = 0;
+//                             }
                             listpai.Remove(pai);
                             listpai.Remove(pai + 1);
                             needlaizi += 1;
@@ -1213,10 +1213,10 @@ namespace tryMJcard.Tool.GameTool
                         else if (!listpai.Contains(pai + 1) && listpai.Contains(pai + 2) && (pai / 10) == ((pai + 2) / 10))
                         {
                             #region 如果可与当前值 组成顺子的牌有2个，则需要癞子一个
-                            if (!youxianduizi)
-                            {
-                                var d = 0;
-                            }
+//                             if (!youxianduizi)
+//                             {
+//                                 var d = 0;
+//                             }
                             //如果可与当前值 组成顺子的牌有一个，则需要癞子一个
                             listpai.Remove(pai);
                             listpai.Remove(pai + 2);
@@ -1260,10 +1260,10 @@ namespace tryMJcard.Tool.GameTool
                         {//如果可与当前值 组成顺子的牌都没有，则需要癞子两个
 
                             #region 如果可与当前值 组成顺子的牌都没有，则需要癞子两个
-                            if (pai == 12)
-                            {
-                                var x = "dddd";
-                            }
+//                             if (pai == 12)
+//                             {
+//                                 var x = "dddd";
+//                             }
                             listpai.Remove(pai);
                             needlaizi += 2;
                             if (needlaizi > laizicount + 1)
@@ -1758,10 +1758,10 @@ namespace tryMJcard.Tool.GameTool
                             }
                             else if (!listpai.Contains(pai + 1) && listpai.Contains(pai + 2) && (pai / 10) == ((pai + 2) / 10))
                             {
-                                if (!youxianduizi)
-                                {
-                                    var d = 0;
-                                }
+//                                 if (!youxianduizi)
+//                                 {
+//                                     var d = 0;
+//                                 }
                                 //如果可与当前值 组成顺子的牌有一个，则需要癞子一个
                                 listpai.Remove(pai);
                                 listpai.Remove(pai + 2);
@@ -2392,10 +2392,10 @@ namespace tryMJcard.Tool.GameTool
                         else if (!listpai.Contains(pai + 1) && listpai.Contains(pai + 2) && (pai / 10) == ((pai + 2) / 10))
                         {
                             #region 如果可与当前值 组成顺子的牌有一个，则需要癞子一个
-                            if (!youxianduizi)
-                            {
-                                var d = 0;
-                            }
+//                             if (!youxianduizi)
+//                             {
+//                                 var d = 0;
+//                             }
                             //如果可与当前值 组成顺子的牌有一个，则需要癞子一个
                             listpai.Remove(pai);
                             listpai.Remove(pai + 2);
@@ -2891,10 +2891,10 @@ namespace tryMJcard.Tool.GameTool
                             {
                                 #region 如果可与当前值 组成顺子的牌有一个，则需要癞子一个
                                 //如果可与当前值 组成顺子的牌有一个，则需要癞子一个
-                                if (!youxianduizi)
-                                {
-                                    var d = 0;
-                                }
+//                                 if (!youxianduizi)
+//                                 {
+//                                     var d = 0;
+//                                 }
                                 listpai.Remove(pai);
                                 listpai.Remove(pai + 1);
                                 needlaizi += 1;
@@ -2929,10 +2929,10 @@ namespace tryMJcard.Tool.GameTool
                             else if (!listpai.Contains(pai + 1) && listpai.Contains(pai + 2) && (pai / 10) == ((pai + 2) / 10))
                             {
                                 #region 如果可与当前值 组成顺子的牌有一个，则需要癞子一个
-                                if (!youxianduizi)
-                                {
-                                    var d = 0;
-                                }
+//                                 if (!youxianduizi)
+//                                 {
+//                                     var d = 0;
+//                                 }
                                 //如果可与当前值 组成顺子的牌有一个，则需要癞子一个
                                 listpai.Remove(pai);
                                 listpai.Remove(pai + 2);
@@ -3926,10 +3926,10 @@ namespace tryMJcard.Tool.GameTool
                             else if (!listpai.Contains(pai - 1) && listpai.Contains(pai - 2) && (pai / 10) == ((pai - 2) / 10))
                             {
                                 #region 如果可与当前值 组成顺子的牌有一个，则需要癞子一个
-                                if (!youxianduizi)
-                                {
-                                    var d = 0;
-                                }
+//                                 if (!youxianduizi)
+//                                 {
+//                                     var d = 0;
+//                                 }
                                 //如果可与当前值 组成顺子的牌有一个，则需要癞子一个
                                 listpai.Remove(pai);
                                 listpai.Remove(pai - 2);
