@@ -195,4 +195,36 @@ namespace tryMJcard.Tool.GameTool
         全黑 = 67,
         全红 = 68,
     }
+
+    public class fanmodel
+    {
+        public int fanshu { get; set; }
+        public string fanname { get; set; }
+    }
+
+    public class TingPaiModel
+    {
+        /// <summary>
+        /// 需要的牌点
+        /// </summary>
+        public int pai { get; set; }
+        /// <summary>
+        /// 是否是 边坎吊 (1.边  2.坎 缺中间的 3.钓将/钓刻字 )
+        /// </summary>
+        public int paiType { get; set; }
+
+        public int fengLianCount { get; set; }
+
+    }
+
+    /// <summary>
+    /// 胡牌信息
+    /// </summary>
+    public class HuModel
+    {
+        /// <summary>
+        /// 风牌 和 中发白 组成一连的 个数
+        /// </summary>
+        public int fengLianCount { get; set; }
+    }
 }

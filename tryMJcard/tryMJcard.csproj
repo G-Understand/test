@@ -66,7 +66,11 @@
     <Compile Include="Tool\GameTool\CardTypeCalculation.cs" />
     <Compile Include="Tool\GameTool\DataStructure.cs" />
     <Compile Include="Tool\GameTool\DouNiuPdType.cs" />
+    <Compile Include="Tool\GameTool\GameRule.cs" />
+    <Compile Include="Tool\GameTool\LzMjRule.cs" />
+    <Compile Include="Tool\GameTool\PlayRules.cs" />
     <Compile Include="Tool\Tool\CloneExtends.cs" />
+    <Compile Include="Tool\Tool\EventLib.cs" />
     <Compile Include="Tool\Tool\Expand.cs" />
     <Compile Include="Log\File.cs" />
     <Compile Include="Tool\GameTool\GameRecords.cs" />
