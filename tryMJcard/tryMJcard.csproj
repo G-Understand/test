@@ -11,6 +11,21 @@
     <AssemblyName>tryMJcard</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <PublishUrl>发布\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -18,9 +33,10 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>DEBUG;FEAT_SAFE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -49,19 +65,111 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="UnityEngine">
       <HintPath>dll\UnityEngine.dll</HintPath>
     </Reference>
+    <Reference Include="websocket-sharp">
+      <HintPath>..\websocket-sharp\bin\Debug\websocket-sharp.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Socket\AppRespose.cs" />
-    <Compile Include="Socket\BufferManager.cs" />
-    <Compile Include="Socket\ClientConnection.cs" />
+    <Compile Include="protobuf-net\BclHelpers.cs" />
+    <Compile Include="protobuf-net\BufferExtension.cs" />
+    <Compile Include="protobuf-net\BufferPool.cs" />
+    <Compile Include="protobuf-net\CallbackAttributes.cs" />
+    <Compile Include="protobuf-net\Compiler\CompilerContext.cs" />
+    <Compile Include="protobuf-net\Compiler\CompilerDelegates.cs" />
+    <Compile Include="protobuf-net\Compiler\Local.cs" />
+    <Compile Include="protobuf-net\DataFormat.cs" />
+    <Compile Include="protobuf-net\Extensible.cs" />
+    <Compile Include="protobuf-net\ExtensibleUtil.cs" />
+    <Compile Include="protobuf-net\GlobalSuppressions.cs" />
+    <Compile Include="protobuf-net\Helpers.cs" />
+    <Compile Include="protobuf-net\IExtensible.cs" />
+    <Compile Include="protobuf-net\IExtension.cs" />
+    <Compile Include="protobuf-net\ImplicitFields.cs" />
+    <Compile Include="protobuf-net\KeyValuePairProxy.cs" />
+    <Compile Include="protobuf-net\Meta\AttributeMap.cs" />
+    <Compile Include="protobuf-net\Meta\BasicList.cs" />
+    <Compile Include="protobuf-net\Meta\CallbackSet.cs" />
+    <Compile Include="protobuf-net\Meta\MetaType.cs" />
+    <Compile Include="protobuf-net\Meta\RuntimeTypeModel.cs" />
+    <Compile Include="protobuf-net\Meta\SubType.cs" />
+    <Compile Include="protobuf-net\Meta\TypeFormatEventArgs.cs" />
+    <Compile Include="protobuf-net\Meta\TypeModel.cs" />
+    <Compile Include="protobuf-net\Meta\ValueMember.cs" />
+    <Compile Include="protobuf-net\NetObjectCache.cs" />
+    <Compile Include="protobuf-net\PrefixStyle.cs" />
+    <Compile Include="protobuf-net\ProtoContractAttribute.cs" />
+    <Compile Include="protobuf-net\ProtoConverterAttribute.cs" />
+    <Compile Include="protobuf-net\ProtoEnumAttribute.cs" />
+    <Compile Include="protobuf-net\ProtoException.cs" />
+    <Compile Include="protobuf-net\ProtoIgnoreAttribute.cs" />
+    <Compile Include="protobuf-net\ProtoIncludeAttribute.cs" />
+    <Compile Include="protobuf-net\ProtoMemberAttribute.cs" />
+    <Compile Include="protobuf-net\ProtoReader.cs" />
+    <Compile Include="protobuf-net\ProtoWriter.cs" />
+    <Compile Include="protobuf-net\SerializationContext.cs" />
+    <Compile Include="protobuf-net\Serializer.cs" />
+    <Compile Include="protobuf-net\Serializers\ArrayDecorator.cs" />
+    <Compile Include="protobuf-net\Serializers\BlobSerializer.cs" />
+    <Compile Include="protobuf-net\Serializers\BooleanSerializer.cs" />
+    <Compile Include="protobuf-net\Serializers\ByteSerializer.cs" />
+    <Compile Include="protobuf-net\Serializers\CharSerializer.cs" />
+    <Compile Include="protobuf-net\Serializers\CompiledSerializer.cs" />
+    <Compile Include="protobuf-net\Serializers\DateTimeSerializer.cs" />
+    <Compile Include="protobuf-net\Serializers\DecimalSerializer.cs" />
+    <Compile Include="protobuf-net\Serializers\DefaultValueDecorator.cs" />
+    <Compile Include="protobuf-net\Serializers\DoubleSerializer.cs" />
+    <Compile Include="protobuf-net\Serializers\EnumSerializer.cs" />
+    <Compile Include="protobuf-net\Serializers\FieldDecorator.cs" />
+    <Compile Include="protobuf-net\Serializers\GuidSerializer.cs" />
+    <Compile Include="protobuf-net\Serializers\ImmutableCollectionDecorator.cs" />
+    <Compile Include="protobuf-net\Serializers\Int16Serializer.cs" />
+    <Compile Include="protobuf-net\Serializers\Int32Serializer.cs" />
+    <Compile Include="protobuf-net\Serializers\Int64Serializer.cs" />
+    <Compile Include="protobuf-net\Serializers\IProtoSerializer.cs" />
+    <Compile Include="protobuf-net\Serializers\IProtoTypeSerializer.cs" />
+    <Compile Include="protobuf-net\Serializers\ISerializerProxy.cs" />
+    <Compile Include="protobuf-net\Serializers\KeyValuePairDecorator.cs" />
+    <Compile Include="protobuf-net\Serializers\ListDecorator.cs" />
+    <Compile Include="protobuf-net\Serializers\MemberSpecifiedDecorator.cs" />
+    <Compile Include="protobuf-net\Serializers\NetObjectSerializer.cs" />
+    <Compile Include="protobuf-net\Serializers\NullDecorator.cs" />
+    <Compile Include="protobuf-net\Serializers\ParseableSerializer.cs" />
+    <Compile Include="protobuf-net\Serializers\PropertyDecorator.cs" />
+    <Compile Include="protobuf-net\Serializers\ProtoDecoratorBase.cs" />
+    <Compile Include="protobuf-net\Serializers\SByteSerializer.cs" />
+    <Compile Include="protobuf-net\Serializers\SingleSerializer.cs" />
+    <Compile Include="protobuf-net\Serializers\StringSerializer.cs" />
+    <Compile Include="protobuf-net\Serializers\SubItemSerializer.cs" />
+    <Compile Include="protobuf-net\Serializers\SurrogateSerializer.cs" />
+    <Compile Include="protobuf-net\Serializers\SystemTypeSerializer.cs" />
+    <Compile Include="protobuf-net\Serializers\TagDecorator.cs" />
+    <Compile Include="protobuf-net\Serializers\TimeSpanSerializer.cs" />
+    <Compile Include="protobuf-net\Serializers\TupleSerializer.cs" />
+    <Compile Include="protobuf-net\Serializers\TypeSerializer.cs" />
+    <Compile Include="protobuf-net\Serializers\UInt16Serializer.cs" />
+    <Compile Include="protobuf-net\Serializers\UInt32Serializer.cs" />
+    <Compile Include="protobuf-net\Serializers\UInt64Serializer.cs" />
+    <Compile Include="protobuf-net\Serializers\UriDecorator.cs" />
+    <Compile Include="protobuf-net\ServiceModel\ProtoBehaviorAttribute.cs" />
+    <Compile Include="protobuf-net\ServiceModel\ProtoBehaviorExtensionElement.cs" />
+    <Compile Include="protobuf-net\ServiceModel\ProtoEndpointBehavior.cs" />
+    <Compile Include="protobuf-net\ServiceModel\ProtoOperationBehavior.cs" />
+    <Compile Include="protobuf-net\ServiceModel\XmlProtoSerializer.cs" />
+    <Compile Include="protobuf-net\SubItemToken.cs" />
+    <Compile Include="protobuf-net\WireType.cs" />
+    <Compile Include="Tool\MessageTool\MessageHandle.cs" />
+    <Compile Include="Tool\SocketTool\AppModel.cs" />
+    <Compile Include="Tool\SocketTool\AppRespose.cs" />
+    <Compile Include="Tool\SocketTool\BufferManager.cs" />
+    <Compile Include="Tool\SocketTool\ClientConnection.cs" />
     <Compile Include="SQL\SQLTest.cs" />
     <Compile Include="Tool\GameTool\CardTypeCalculation.cs" />
     <Compile Include="Tool\GameTool\DataStructure.cs" />
@@ -69,8 +177,16 @@
     <Compile Include="Tool\GameTool\GameRule.cs" />
     <Compile Include="Tool\GameTool\LzMjRule.cs" />
     <Compile Include="Tool\GameTool\PlayRules.cs" />
+    <Compile Include="Tool\MessageTool\EventArgs.cs" />
+    <Compile Include="Tool\MessageTool\EventDispatcher.cs" />
+    <Compile Include="Tool\MessageTool\IDispatcher.cs" />
+    <Compile Include="Tool\MessageTool\MessageBase.cs" />
+    <Compile Include="Tool\MessageTool\MessageProcessor.cs" />
+    <Compile Include="Tool\MessageTool\MessageProcessorBase.cs" />
+    <Compile Include="Tool\SocketTool\Echo.cs" />
+    <Compile Include="Tool\SocketTool\SerializerUtils.cs" />
     <Compile Include="Tool\Tool\CloneExtends.cs" />
-    <Compile Include="Tool\Tool\EventLib.cs" />
+    <Compile Include="Tool\MessageTool\EventLib.cs" />
     <Compile Include="Tool\Tool\Expand.cs" />
     <Compile Include="Log\File.cs" />
     <Compile Include="Tool\GameTool\GameRecords.cs" />
@@ -95,7 +211,7 @@
     <Compile Include="SQL\manager_role_value.cs">
       <DependentUpon>SqlEntity.tt</DependentUpon>
     </Compile>
-    <Compile Include="Socket\MessageStream.cs" />
+    <Compile Include="Tool\SocketTool\MessageStream.cs" />
     <Compile Include="Tool\Tool\MonoSingleton.cs" />
     <Compile Include="SQL\navigation.cs">
       <DependentUpon>SqlEntity.tt</DependentUpon>
@@ -103,11 +219,11 @@
     <Compile Include="Tool\Tool\PermutationAndCombination.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Socket\SendRespose.cs" />
+    <Compile Include="Tool\SocketTool\SendRespose.cs" />
     <Compile Include="SQL\Sign_in.cs" />
     <Compile Include="Tool\Tool\Singleton.cs" />
-    <Compile Include="Socket\SocketPool.cs" />
-    <Compile Include="Socket\SocketTool.cs" />
+    <Compile Include="Tool\SocketTool\SocketPool.cs" />
+    <Compile Include="Tool\SocketTool\SocketTool.cs" />
     <Compile Include="SQL\SqlEntity.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -237,7 +353,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Tool\Tool\UIManager.cs" />
-    <Compile Include="Socket\User.cs" />
+    <Compile Include="Tool\SocketTool\User.cs" />
     <Compile Include="XMLManager.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -249,11 +365,112 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>SqlEntity.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="protobuf-net\BclHelpers.cs.meta" />
+    <None Include="protobuf-net\bin.meta" />
+    <None Include="protobuf-net\bin\Debug.meta" />
+    <None Include="protobuf-net\BufferExtension.cs.meta" />
+    <None Include="protobuf-net\BufferPool.cs.meta" />
+    <None Include="protobuf-net\CallbackAttributes.cs.meta" />
+    <None Include="protobuf-net\Compiler.meta" />
+    <None Include="protobuf-net\Compiler\CompilerContext.cs.meta" />
+    <None Include="protobuf-net\Compiler\CompilerDelegates.cs.meta" />
+    <None Include="protobuf-net\Compiler\Local.cs.meta" />
+    <None Include="protobuf-net\DataFormat.cs.meta" />
+    <None Include="protobuf-net\Extensible.cs.meta" />
+    <None Include="protobuf-net\ExtensibleUtil.cs.meta" />
+    <None Include="protobuf-net\GlobalSuppressions.cs.meta" />
+    <None Include="protobuf-net\Helpers.cs.meta" />
+    <None Include="protobuf-net\IExtensible.cs.meta" />
+    <None Include="protobuf-net\IExtension.cs.meta" />
+    <None Include="protobuf-net\ImplicitFields.cs.meta" />
+    <None Include="protobuf-net\KeyValuePairProxy.cs.meta" />
+    <None Include="protobuf-net\Meta.meta" />
+    <None Include="protobuf-net\Meta\AttributeMap.cs.meta" />
+    <None Include="protobuf-net\Meta\BasicList.cs.meta" />
+    <None Include="protobuf-net\Meta\CallbackSet.cs.meta" />
+    <None Include="protobuf-net\Meta\MetaType.cs.meta" />
+    <None Include="protobuf-net\Meta\RuntimeTypeModel.cs.meta" />
+    <None Include="protobuf-net\Meta\SubType.cs.meta" />
+    <None Include="protobuf-net\Meta\TypeFormatEventArgs.cs.meta" />
+    <None Include="protobuf-net\Meta\TypeModel.cs.meta" />
+    <None Include="protobuf-net\Meta\ValueMember.cs.meta" />
+    <None Include="protobuf-net\NetObjectCache.cs.meta" />
+    <None Include="protobuf-net\obj.meta" />
+    <None Include="protobuf-net\obj\Debug.meta" />
+    <None Include="protobuf-net\PrefixStyle.cs.meta" />
+    <None Include="protobuf-net\Properties.meta" />
+    <None Include="protobuf-net\protobuf-net.csproj.meta" />
+    <None Include="protobuf-net\ProtoContractAttribute.cs.meta" />
+    <None Include="protobuf-net\ProtoConverterAttribute.cs.meta" />
+    <None Include="protobuf-net\ProtoEnumAttribute.cs.meta" />
+    <None Include="protobuf-net\ProtoException.cs.meta" />
+    <None Include="protobuf-net\ProtoIgnoreAttribute.cs.meta" />
+    <None Include="protobuf-net\ProtoIncludeAttribute.cs.meta" />
+    <None Include="protobuf-net\ProtoMemberAttribute.cs.meta" />
+    <None Include="protobuf-net\ProtoReader.cs.meta" />
+    <None Include="protobuf-net\ProtoWriter.cs.meta" />
+    <None Include="protobuf-net\SerializationContext.cs.meta" />
+    <None Include="protobuf-net\Serializer.cs.meta" />
+    <None Include="protobuf-net\Serializers.meta" />
+    <None Include="protobuf-net\Serializers\ArrayDecorator.cs.meta" />
+    <None Include="protobuf-net\Serializers\BlobSerializer.cs.meta" />
+    <None Include="protobuf-net\Serializers\BooleanSerializer.cs.meta" />
+    <None Include="protobuf-net\Serializers\ByteSerializer.cs.meta" />
+    <None Include="protobuf-net\Serializers\CharSerializer.cs.meta" />
+    <None Include="protobuf-net\Serializers\CompiledSerializer.cs.meta" />
+    <None Include="protobuf-net\Serializers\DateTimeSerializer.cs.meta" />
+    <None Include="protobuf-net\Serializers\DecimalSerializer.cs.meta" />
+    <None Include="protobuf-net\Serializers\DefaultValueDecorator.cs.meta" />
+    <None Include="protobuf-net\Serializers\DoubleSerializer.cs.meta" />
+    <None Include="protobuf-net\Serializers\EnumSerializer.cs.meta" />
+    <None Include="protobuf-net\Serializers\FieldDecorator.cs.meta" />
+    <None Include="protobuf-net\Serializers\GuidSerializer.cs.meta" />
+    <None Include="protobuf-net\Serializers\ImmutableCollectionDecorator.cs.meta" />
+    <None Include="protobuf-net\Serializers\Int16Serializer.cs.meta" />
+    <None Include="protobuf-net\Serializers\Int32Serializer.cs.meta" />
+    <None Include="protobuf-net\Serializers\Int64Serializer.cs.meta" />
+    <None Include="protobuf-net\Serializers\IProtoSerializer.cs.meta" />
+    <None Include="protobuf-net\Serializers\IProtoTypeSerializer.cs.meta" />
+    <None Include="protobuf-net\Serializers\ISerializerProxy.cs.meta" />
+    <None Include="protobuf-net\Serializers\KeyValuePairDecorator.cs.meta" />
+    <None Include="protobuf-net\Serializers\ListDecorator.cs.meta" />
+    <None Include="protobuf-net\Serializers\MemberSpecifiedDecorator.cs.meta" />
+    <None Include="protobuf-net\Serializers\NetObjectSerializer.cs.meta" />
+    <None Include="protobuf-net\Serializers\NullDecorator.cs.meta" />
+    <None Include="protobuf-net\Serializers\ParseableSerializer.cs.meta" />
+    <None Include="protobuf-net\Serializers\PropertyDecorator.cs.meta" />
+    <None Include="protobuf-net\Serializers\ProtoDecoratorBase.cs.meta" />
+    <None Include="protobuf-net\Serializers\SByteSerializer.cs.meta" />
+    <None Include="protobuf-net\Serializers\SingleSerializer.cs.meta" />
+    <None Include="protobuf-net\Serializers\StringSerializer.cs.meta" />
+    <None Include="protobuf-net\Serializers\SubItemSerializer.cs.meta" />
+    <None Include="protobuf-net\Serializers\SurrogateSerializer.cs.meta" />
+    <None Include="protobuf-net\Serializers\SystemTypeSerializer.cs.meta" />
+    <None Include="protobuf-net\Serializers\TagDecorator.cs.meta" />
+    <None Include="protobuf-net\Serializers\TimeSpanSerializer.cs.meta" />
+    <None Include="protobuf-net\Serializers\TupleSerializer.cs.meta" />
+    <None Include="protobuf-net\Serializers\TypeSerializer.cs.meta" />
+    <None Include="protobuf-net\Serializers\UInt16Serializer.cs.meta" />
+    <None Include="protobuf-net\Serializers\UInt32Serializer.cs.meta" />
+    <None Include="protobuf-net\Serializers\UInt64Serializer.cs.meta" />
+    <None Include="protobuf-net\Serializers\UriDecorator.cs.meta" />
+    <None Include="protobuf-net\ServiceModel.meta" />
+    <None Include="protobuf-net\ServiceModel\ProtoBehaviorAttribute.cs.meta" />
+    <None Include="protobuf-net\ServiceModel\ProtoBehaviorExtensionElement.cs.meta" />
+    <None Include="protobuf-net\ServiceModel\ProtoEndpointBehavior.cs.meta" />
+    <None Include="protobuf-net\ServiceModel\ProtoOperationBehavior.cs.meta" />
+    <None Include="protobuf-net\ServiceModel\XmlProtoSerializer.cs.meta" />
+    <None Include="protobuf-net\SubItemToken.cs.meta" />
+    <None Include="protobuf-net\Web.meta" />
+    <None Include="protobuf-net\Web\TODO.txt.meta" />
+    <None Include="protobuf-net\WireType.cs.meta" />
     <None Include="SQL\SqlEntity.edmx.diagram">
       <DependentUpon>SqlEntity.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="protobuf-net\protobuf-net.csproj" />
+    <Content Include="protobuf-net\Web\TODO.txt" />
     <Content Include="SQL\SqlEntity.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>SqlEntity.edmx</DependentUpon>
@@ -270,6 +487,28 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="protobuf-net\bin\Debug\" />
+    <Folder Include="protobuf-net\obj\Debug\" />
+    <Folder Include="protobuf-net\Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
