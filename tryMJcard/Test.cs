@@ -52,6 +52,46 @@ namespace tryMJcard
         }
 
         /// <summary>
+        /// 鱼死亡概率
+        /// </summary>
+        /// <param name="fish"></param>
+        /// <returns></returns>
+        public bool ProbabilityDeath()
+        {
+            bool result = false;
+            for (int i = 0; i < 2; i++)
+            {
+                
+            }
+            return result;
+        }
+        /// <summary>
+        /// 获取随机数
+        /// </summary>
+        /// <param name="minValue"></param>
+        /// <param name="maxValue"></param>
+        /// <returns></returns>
+        public static int GetRandom(int minValue, int maxValue)
+        {//使用Guid.NewGuid().GetHashCode()作为种子，可以确保Random在极短时间产生的随机数尽可能做到不重复
+            Random rand = new Random(Guid.NewGuid().GetHashCode());//使用Guid的哈希值做种子  
+            int item;
+            item = rand.Next(minValue, maxValue);
+            return item;
+        }
+        public static void Fishing()
+        {
+            for (int i = 0; i < 500; i++)
+            {
+                int random = GetRandom(0, 100);
+                int number = 0;
+                while (random / 100.00 < ( 1/30.00 * 0.35))
+                {
+                    
+                }
+            }
+        }
+
+        /// <summary>
         /// 正则表达式测试
         /// </summary>
         public static void  RegexText()
@@ -217,6 +257,12 @@ namespace tryMJcard
         /// </summary>
         public static void IntTest()
         {
+            //             RoomData room = (
+            //                 from r 
+            //                     in roomList 
+            //                 where r.roomId == roomId 
+            //                 select r
+            //                 ).FirstOrDefault() ;
             string jingdu = "123456987654";
             /*var datssssssssss = jingdu.Split('|');*/
             for (int i = 0; i < jingdu.Count(); i++)

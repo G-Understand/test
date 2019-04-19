@@ -24,7 +24,7 @@ namespace tryMJcard
         static void Main(string[] args)
         {
             Start();
-            Test.MaJong();
+            Test.Fishing();
             LogManagerSimple.WriteLog_Gui("我真棒------------------------------------------------------------------------------------", "" + "gui");
             Test.WriteLineTest();
             Program program = new Program();

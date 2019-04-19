@@ -1,4 +1,5 @@
 ﻿using System;
+using tryMJcard.SocketToolHandler;
 
 namespace tryMJcard.Tool.MessageTool
 {

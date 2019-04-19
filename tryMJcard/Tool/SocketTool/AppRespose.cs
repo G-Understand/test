@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using tryMJcard.Tool.SocketTool;
 
-namespace tryMJcard
+namespace tryMJcard.SocketToolHandler
 {
     /// <summary>
     /// 消息号

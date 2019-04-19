@@ -63,6 +63,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.Extensions" />
@@ -166,6 +168,7 @@
     <Compile Include="protobuf-net\SubItemToken.cs" />
     <Compile Include="protobuf-net\WireType.cs" />
     <Compile Include="Tool\MessageTool\MessageHandle.cs" />
+    <Compile Include="Tool\MessageTool\MSMQ.cs" />
     <Compile Include="Tool\SocketTool\AppModel.cs" />
     <Compile Include="Tool\SocketTool\AppRespose.cs" />
     <Compile Include="Tool\SocketTool\BufferManager.cs" />
@@ -354,6 +357,9 @@
     </Compile>
     <Compile Include="Tool\Tool\UIManager.cs" />
     <Compile Include="Tool\SocketTool\User.cs" />
+    <Compile Include="Tool\WindowsTool\MD5Mn.cs" />
+    <Compile Include="Tool\WindowsTool\Windows.cs" />
+    <Compile Include="Tool\WindowsTool\WinShell.cs" />
     <Compile Include="XMLManager.cs" />
   </ItemGroup>
   <ItemGroup>
