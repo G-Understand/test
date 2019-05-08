@@ -60,6 +60,9 @@
     <Reference Include="log4net">
       <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="StackExchange.Redis">
+      <HintPath>dll\StackExchange.Redis.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -169,6 +172,7 @@
     <Compile Include="protobuf-net\WireType.cs" />
     <Compile Include="Tool\MessageTool\MessageHandle.cs" />
     <Compile Include="Tool\MessageTool\MSMQ.cs" />
+    <Compile Include="Tool\MessageTool\RedisHandler.cs" />
     <Compile Include="Tool\SocketTool\AppModel.cs" />
     <Compile Include="Tool\SocketTool\AppRespose.cs" />
     <Compile Include="Tool\SocketTool\BufferManager.cs" />
@@ -188,6 +192,7 @@
     <Compile Include="Tool\MessageTool\MessageProcessorBase.cs" />
     <Compile Include="Tool\SocketTool\Echo.cs" />
     <Compile Include="Tool\SocketTool\SerializerUtils.cs" />
+    <Compile Include="Tool\TimerTool\TimerExample.cs" />
     <Compile Include="Tool\Tool\CloneExtends.cs" />
     <Compile Include="Tool\MessageTool\EventLib.cs" />
     <Compile Include="Tool\Tool\Expand.cs" />

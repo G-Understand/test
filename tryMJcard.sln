@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tryMJcard", "tryMJcard\tryM
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "websocket-sharp", "websocket-sharp\websocket-sharp.csproj", "{B357BAC7-529E-4D81-A0D2-71041B19C8DE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary1", "ClassLibrary1\ClassLibrary1.csproj", "{E1AB933C-EA76-4A5E-9976-60F134EEF6AD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug_Ubuntu|Any CPU = Debug_Ubuntu|Any CPU
@@ -34,6 +36,14 @@ Global
 		{B357BAC7-529E-4D81-A0D2-71041B19C8DE}.Release_Ubuntu|Any CPU.Build.0 = Release_Ubuntu|Any CPU
 		{B357BAC7-529E-4D81-A0D2-71041B19C8DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B357BAC7-529E-4D81-A0D2-71041B19C8DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1AB933C-EA76-4A5E-9976-60F134EEF6AD}.Debug_Ubuntu|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1AB933C-EA76-4A5E-9976-60F134EEF6AD}.Debug_Ubuntu|Any CPU.Build.0 = Debug|Any CPU
+		{E1AB933C-EA76-4A5E-9976-60F134EEF6AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1AB933C-EA76-4A5E-9976-60F134EEF6AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1AB933C-EA76-4A5E-9976-60F134EEF6AD}.Release_Ubuntu|Any CPU.ActiveCfg = Release|Any CPU
+		{E1AB933C-EA76-4A5E-9976-60F134EEF6AD}.Release_Ubuntu|Any CPU.Build.0 = Release|Any CPU
+		{E1AB933C-EA76-4A5E-9976-60F134EEF6AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1AB933C-EA76-4A5E-9976-60F134EEF6AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

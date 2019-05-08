@@ -24,6 +24,7 @@ namespace tryMJcard
         static void Main(string[] args)
         {
             Start();
+            tryMJcard.Tool.TimerTool.TimerExample.Start();
             Test.Fishing();
             LogManagerSimple.WriteLog_Gui("我真棒------------------------------------------------------------------------------------", "" + "gui");
             Test.WriteLineTest();
