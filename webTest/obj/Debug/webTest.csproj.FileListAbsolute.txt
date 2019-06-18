@@ -1,0 +1,7 @@
+D:\用户目录\我的文档\Visual Studio 2013\Projects\tryMJcard\test\webTest\bin\Debug\WebTest1.webtest
+D:\用户目录\我的文档\Visual Studio 2013\Projects\tryMJcard\test\webTest\bin\Debug\WebTest2.webtest
+D:\用户目录\我的文档\Visual Studio 2013\Projects\tryMJcard\test\webTest\bin\Debug\webTest.dll
+D:\用户目录\我的文档\Visual Studio 2013\Projects\tryMJcard\test\webTest\bin\Debug\webTest.pdb
+D:\用户目录\我的文档\Visual Studio 2013\Projects\tryMJcard\test\webTest\obj\Debug\webTest.csprojResolveAssemblyReference.cache
+D:\用户目录\我的文档\Visual Studio 2013\Projects\tryMJcard\test\webTest\obj\Debug\webTest.dll
+D:\用户目录\我的文档\Visual Studio 2013\Projects\tryMJcard\test\webTest\obj\Debug\webTest.pdb

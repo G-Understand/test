@@ -190,9 +190,13 @@
     <Compile Include="Tool\MessageTool\MessageBase.cs" />
     <Compile Include="Tool\MessageTool\MessageProcessor.cs" />
     <Compile Include="Tool\MessageTool\MessageProcessorBase.cs" />
+    <Compile Include="Tool\SocketTool\ClientSocket.cs" />
     <Compile Include="Tool\SocketTool\Echo.cs" />
     <Compile Include="Tool\SocketTool\SerializerUtils.cs" />
     <Compile Include="Tool\TimerTool\TimerExample.cs" />
+    <Compile Include="Tool\TimerTool\TimerManager.cs" />
+    <Compile Include="Tool\TimerTool\TimerModel.cs" />
+    <Compile Include="Tool\TimerTool\TimerTest.cs" />
     <Compile Include="Tool\Tool\CloneExtends.cs" />
     <Compile Include="Tool\MessageTool\EventLib.cs" />
     <Compile Include="Tool\Tool\Expand.cs" />

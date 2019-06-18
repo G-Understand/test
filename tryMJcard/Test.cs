@@ -6,11 +6,30 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
+using tryMJcard.Tool.TimerTool;
+using WebSocketSharp;
 
 namespace tryMJcard
 {
     class Test
     {
+
+        public static void SetSQLSERVER()
+        {
+
+        }
+
+        /// <summary>
+        /// 定时器测试
+        /// </summary>
+        public static void TestTimer()
+        {
+            TimerTest.GetInstance().setDueTime(0, 0, 0, 0, 0);
+            TimerTest.GetInstance().setPeriod(0, 0, 0, 0, 1);
+            TimerTest.GetInstance().Start();
+
+        }
+
         /// <summary>
         /// 麻将测试
         /// </summary>
@@ -65,6 +84,7 @@ namespace tryMJcard
             }
             return result;
         }
+
         /// <summary>
         /// 获取随机数
         /// </summary>
@@ -78,6 +98,10 @@ namespace tryMJcard
             item = rand.Next(minValue, maxValue);
             return item;
         }
+
+        /// <summary>
+        /// 捕鱼测试
+        /// </summary>
         public static void Fishing()
         {
             for (int i = 0; i < 500; i++)

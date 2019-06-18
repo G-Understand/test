@@ -1,9 +1,23 @@
 ﻿using System;
 using System.Timers;
 
+
 namespace tryMJcard
 {
-   
+    public enum fan :int
+    {
+        饼夹菜 = 0,
+        肉夹馍 = 1,
+        黄焖鸡 = 2,
+        鱼粉 =3,
+        大锅菜 = 4,
+        老碗面 = 5,
+        哨子面 = 6,
+        刀削面 = 7,
+        快餐 = 8,
+        饺子 =9
+    }
+
     class Program
     {
         #region Member
@@ -23,10 +37,20 @@ namespace tryMJcard
 
         static void Main(string[] args)
         {
+            while (true)
+            {
+                Console.WriteLine("按下回车，摇一下");
+                Console.ReadLine();
+                Random random = new Random();
+                int re = random.Next(10);
+                Console.WriteLine((fan)re);
+            }
+
             Start();
             tryMJcard.Tool.TimerTool.TimerExample.Start();
-            Test.Fishing();
+            Test.TestTimer();
             LogManagerSimple.WriteLog_Gui("我真棒------------------------------------------------------------------------------------", "" + "gui");
+            Console.WriteLine(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
             Test.WriteLineTest();
             Program program = new Program();
             if (program.timeronPengGangHu != null && program.timeronPengGangHu.Enabled)
