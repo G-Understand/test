@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -16,7 +17,7 @@ namespace tryMJcard
 
         public static void SetSQLSERVER()
         {
-
+            tryMJcard.SQL.SQLTest.GetTimeSpan();
         }
 
         /// <summary>
@@ -220,6 +221,118 @@ namespace tryMJcard
         }
 
         /// <summary>
+        /// 根据IP获取城市
+        /// </summary>
+        public static void GetCtryForIP()
+        {
+            string aaaa = GetAdrByIp("171.15.61.106");
+            string sdsdsd = GetIpDetails();
+            string dddddd = GetCityName("47.112.130.157");
+            string cccccc = GetstringIpAddress("47.99.53.227");
+            //GetAddressByIp();
+            Console.WriteLine(15315161);
+        }
+
+        /// <summary>         
+        /// 得到真实IP以及所在地详细信息（Porschev）         
+        /// </summary>         
+        /// <returns></returns>         
+        static string GetIpDetails()
+        {
+            //设置获取IP地址和国家源码的网址           
+            string url = "http://www.ip138.com/ips8.asp";
+            string regStr = "(?<=<td\\s*align=\\\"center\\\">)[^<]*?(?=<br/><br/></td>)";
+
+            //IP正则
+            string ipRegStr = "((2[0-4]\\d|25[0-5]|[01]?\\d\\d?)\\.){3}(2[0-4]\\d|25[0-5]|[01]?\\d\\d?)";
+
+            //IP地址                 
+            string ip = "171.15.61.106";
+
+            //国家            
+            string country = string.Empty;
+
+            //省市             
+            string adr = string.Empty;
+
+            //得到网页源码             
+            string html = GetHtml(url);
+            Regex reg = new Regex(regStr, RegexOptions.None);
+            Match ma = reg.Match(html); html = ma.Value;
+            Regex ipReg = new Regex(ipRegStr, RegexOptions.None);
+            ma = ipReg.Match(html);
+
+            //得到IP  
+            ip = ma.Value;
+            int index = html.LastIndexOf("：") + 1;
+
+            //得到国家
+            country = html.Substring(index);
+            adr = GetAdrByIp(ip);
+            return "IP：" + ip + "  国家：" + country + "  省市：" + adr;
+        }
+
+        /// <summary>         
+        /// 通过IP得到IP所在地省市（Porschev）         
+        /// </summary>         
+        /// <param name="ip"></param>         
+        /// <returns></returns>         
+        static string GetAdrByIp(string ip)
+        {
+            string url = "http://www.cz88.net/ip/?ip=" + ip;
+            string regStr = "(?<=<span\\s*id=\\\"cz_addr\\\">).*?(?=</span>)";
+
+            //得到网页源码
+            string html = GetHtml(url);
+            Regex reg = new Regex(regStr, RegexOptions.None);
+            Match ma = reg.Match(html);
+            html = ma.Value;
+            string[] arr = html.Split(' ');
+            return arr[0];
+        } 
+
+        /// <summary>         
+        /// 获取HTML源码信息(Porschev)         
+        /// </summary>         
+        /// <param name="url">获取地址</param>         
+        /// <returns>HTML源码</returns>         
+        static string GetHtml(string url)
+        {
+            string str = "";
+            try
+            {
+                Uri uri = new Uri(url);
+                System.Net.WebRequest wr = System.Net.WebRequest.Create(uri);
+                System.IO.Stream s = wr.GetResponse().GetResponseStream();
+                System.IO.StreamReader sr = new System.IO.StreamReader(s, Encoding.Default);
+                str = sr.ReadToEnd();
+            }
+            catch (Exception e)
+            {
+            }
+            return str;
+        }
+
+        /// <summary>
+        /// 红包随机数
+        /// </summary>
+        public static void ChangeNumberListTest()
+        {
+            while (true)
+            {
+                var numberList = GetNumberList(100, 5, 1);
+                var data = ChangeNumberList(numberList);
+                Console.WriteLine(data.ToJson());
+                if (data.Sum() != 100)
+                {
+                    Console.WriteLine(151561);
+                }
+                System.Threading.Thread.Sleep(500);
+            }
+        }
+
+
+        /// <summary>
         /// 文本输入 测试
         /// </summary>
         public static void WriteLineTest()
@@ -256,6 +369,7 @@ namespace tryMJcard
             string asdff = DateTime.Now.ToString("HHmmss");//.Replace(":", string.Empty);
             int numbseras = asdff.getint();
             string asiodjfiaopsdjfpa = ((DateTime.Now.ToUniversalTime().Ticks - 621355968000000000) / 10000000).ToString();
+            Console.WriteLine(1111);
         }
 
         /// <summary>
@@ -274,6 +388,16 @@ namespace tryMJcard
             {
                 return;
             }
+        }
+
+        /// <summary>
+        /// 虚函数测试
+        /// </summary>
+        public static void OverrideTest()
+        {
+            RedPck redPack = new RedPck();
+            redPack.Test();
+            Console.WriteLine(222);
         }
 
         /// <summary>
@@ -316,6 +440,248 @@ namespace tryMJcard
             string url = "http://www.cfanz.cn/uploads/jpg/2013/07/13/0/XEPLd7d2C5.jpg";
             url = url.Replace("/", "++++"); ;
         }
+
+        /// <summary>
+        /// RemoveAll测试
+        /// </summary>
+        public static void RemoveAllTest()
+        {
+            List<domo> domos = new List<domo>();
+            domos.RemoveAll(d => d.a == 1);
+            Console.WriteLine(111);
+        }
+
+        /// <summary>
+        /// 红包金额，红包数，可发红包最小值，生成与红包数相等且所有值相加等于红包金额的 decimal 集合
+        /// </summary>
+        /// <param name="allAmount">红包金额</param>
+        /// <param name="count">红包数</param>
+        /// <param name="min">可发红包最小金额</param>
+        /// <returns></returns>
+        public static List<decimal> GetNumberList(int allAmount, int count, int min)
+        {
+            //金额
+            int amount = allAmount * 100;
+            //包数
+            int packageCount = count;
+            List<decimal> numberList = new List<decimal>();
+            for (int i = 1; i <= count; i++)
+            {
+                var money = 0;
+                if (i == count)
+                {
+                    money = amount;
+                    if (money < 0)
+                    {
+                        throw new Exception("生成了一个小于0的数字");
+                    }
+                }
+                else
+                {
+                    int max = amount / packageCount * 2; //(amount - (min * (packageCount - i))) / (packageCount - i) * 2;
+                    Random r = new Random(Guid.NewGuid().GetHashCode());
+                    money = r.Next(min, max);
+                    money = money <= min ? min : money;//判断最小值
+                    amount -= money;
+                    if (money < 0)
+                    {
+                        throw new Exception("生成了一个小于0的数字");
+                    }
+                }
+                //numberList.Add(money / 100.0m);
+                numberList.Add(decimal.Parse(string.Format("{0:N}", money / 100.0m)));
+                packageCount--;
+            }
+            if (numberList.Contains(0))
+            {
+                Console.WriteLine(1231564);
+            }
+            return numberList;
+        }
+
+        /// <summary>
+        /// 接龙修改雷点
+        /// </summary>
+        /// <param name="numberList"></param>
+        /// <returns></returns>
+        static List<decimal> ChangeNumberList(List<decimal> numberList)
+        {
+            if (numberList == null) return new List<decimal>();
+            decimal min = numberList.Min();
+            int count = numberList.Count(d => d == min);
+            if (count <= 1) return numberList;//不需要改变
+            decimal max = numberList.Max();
+            decimal changeValue = 0.01m;
+            decimal sum = changeValue * (count - 1);
+            numberList = numberList.OrderBy(d => d).ToList();
+            for (int i = 0; i < numberList.Count; i++)//改雷
+            {
+                decimal value = numberList[i];
+                if (value == min && count > 1)//非雷点或只剩最后一个雷点
+                {
+                    count--;
+                    numberList[i] += changeValue;
+                }
+                if (value == max)
+                {
+                    numberList[i] -= sum;
+                }
+            }
+            if (numberList.Contains(0))
+            {
+                Console.WriteLine(1231564);
+            }
+            return numberList;
+        }
+
+        /// <summary>
+        /// 根据IP查询城市
+        /// </summary>
+        /// <param name="ip"></param>
+        /// <returns></returns>
+        public static string GetCityByIp(string ip)
+        {
+            try
+            {
+                string city = string.Empty;
+                string PostUrl = "http://ip.taobao.com/service/getIpInfo.php?ip=" + ip + "";
+                System.Net.WebRequest web = System.Net.WebRequest.Create(PostUrl);
+                web.Timeout = 2000;
+                System.Net.WebResponse webres = web.GetResponse();
+                System.IO.Stream stream = webres.GetResponseStream();
+                using (System.IO.StreamReader reader = new System.IO.StreamReader(stream))
+                {
+                    string json = reader.ReadToEnd();
+                    Dictionary<string, object> dic = Json.ParseJson<Dictionary<string, object>>(json);
+                    string data = dic["data"].ToJson();
+                    Dictionary<string, object> dataDic = Json.ParseJson<Dictionary<string, object>>(data);
+                    city = dataDic["city"].ToString();
+                }
+                stream.Close();
+                stream.Dispose();
+                return city;
+            }
+            catch (Exception)
+            {
+                return "无法获取";
+            }
+        }
+
+        /// <summary>
+        /// 根据IP获取省市
+        /// </summary>
+        static void GetAddressByIp()
+        {
+            string ip = "115.193.217.249";
+            string PostUrl = "http://int.dpool.sina.com.cn/iplookup/iplookup.php?ip=" + ip;
+            string res = GetDataByPost(PostUrl);//该条请求返回的数据为：res=1\t115.193.210.0\t115.194.201.255\t中国\t浙江\t杭州\t电信
+            string[] arr = getAreaInfoList(res);
+        }
+
+        /// <summary>
+        /// Post请求数据
+        /// </summary>
+        /// <param name="url"></param>
+        /// <returns></returns>
+        static string GetDataByPost(string url)
+        {
+            System.Net.HttpWebRequest req = (System.Net.HttpWebRequest)System.Net.WebRequest.Create(url);
+            string s = "anything";
+            byte[] requestBytes = System.Text.Encoding.ASCII.GetBytes(s);
+            req.Method = "POST";
+            req.ContentType = "application/x-www-form-urlencoded";
+            req.ContentLength = requestBytes.Length;
+            System.IO.Stream requestStream = req.GetRequestStream();
+            requestStream.Write(requestBytes, 0, requestBytes.Length);
+            requestStream.Close();
+            System.Net.HttpWebResponse res = (System.Net.HttpWebResponse)req.GetResponse();
+            System.IO.StreamReader sr = new System.IO.StreamReader(res.GetResponseStream(), System.Text.Encoding.Default);
+            string backstr = sr.ReadToEnd();
+            sr.Close();
+            res.Close();
+            return backstr;
+        }
+
+        /// <summary>
+        /// 处理所要的数据
+        /// </summary>
+        /// <param name="ip"></param>
+        /// <returns></returns>
+        static string[] getAreaInfoList(string ipData)
+        {
+            //1\t115.193.210.0\t115.194.201.255\t中国\t浙江\t杭州\t电信
+            string[] areaArr = new string[10];
+            string[] newAreaArr = new string[2];
+            try
+            {
+                //取所要的数据，这里只取省市
+                areaArr = ipData.Split('\t');
+                newAreaArr[0] = areaArr[4];//省
+                newAreaArr[1] = areaArr[5];//市
+            }
+            catch (Exception e)
+            {
+                // TODO: handle exception
+            }
+            return newAreaArr;
+        }
+
+        /// <summary>
+        /// 根据IP 获取物理地址
+        /// </summary>
+        /// <param name="strIP"></param>
+        /// <returns></returns>
+        static string GetCityName(string strIP)
+        {
+            string Location = "";
+            //string strURL = "http://pv.sohu.com/cityjson/" + strIP;
+            string strURL = "http://ip.taobao.com/service/getIpInfo.php?ip=" + strIP;
+            System.Xml.XmlDocument doc = new System.Xml.XmlDocument();                     //Xml文档
+            string dsdsd = GetHtml(strURL);                                        //加载strURL指定XML数据
+
+            System.Xml.XmlNodeList nodeLstCity = doc.GetElementsByTagName("City"); //获取标签
+            Location = "获取单个物理位置:" + nodeLstCity[0].InnerText + "";
+            Console.WriteLine(Location);
+            //通过SelectSingleNode匹配匹配第一个节点
+            System.Xml.XmlNode root = doc.SelectSingleNode("Response");
+            if (root != null)
+            {
+                string CountryName = (root.SelectSingleNode("CountryName")).InnerText;
+                string RegionName = (root.SelectSingleNode("RegionName")).InnerText;
+                string City = (root.SelectSingleNode("City")).InnerText;
+                Location = "国家名称:" + CountryName + "\n区域名称:" + RegionName + "\n城市名称:" + City;
+                return Location;
+            }
+            return Location;
+        }
+
+        /// <summary>
+        /// 根据IP 获取物理地址
+        /// </summary>
+        /// <param name="strIP"></param>
+        /// <returns></returns>
+        static string GetstringIpAddress(string strIP) //strIP为IP
+        {
+            //string sURL = "http://ip.taobao.com/service/getIpInfo.php?ip=" + strIP + "";
+            string sURL = "http://pv.sohu.com/cityjson/74.125.31.104";
+            string stringIpAddress = "";                     //地理位置
+            using (System.Xml.XmlReader read = System.Xml.XmlReader.Create(sURL))  //获取youdao返回的xml格式文件内容
+            {
+                while (read.Read())                          //从流中读取下一个字节
+                {
+                    switch (read.NodeType)
+                    {
+                        case System.Xml.XmlNodeType.Text:               //取xml格式文件当中的文本内容
+                            if (string.Format("{0}", read.Value).ToString().Trim() != strIP)
+                            {
+                                stringIpAddress = string.Format("{0}", read.Value).ToString().Trim();
+                            }
+                            break;
+                    }
+                }
+            }
+            return stringIpAddress;
+        }
     }
 
     /// <summary>
@@ -369,6 +735,34 @@ namespace tryMJcard
             {
                 Console.WriteLine("----------------------" + msg);
             }
+        }
+    }
+
+    public class domo
+    {
+        public int d = 0;
+        public int a = 0;
+    }
+
+    public class Base
+    {
+        public void Test()
+        {
+            Tuck();
+        }
+
+        public virtual void Tuck()
+        {
+
+        }
+    }
+
+    public class RedPck:Base
+    {
+        public override void Tuck()
+        {
+            base.Tuck();
+            Console.WriteLine(111);
         }
     }
 

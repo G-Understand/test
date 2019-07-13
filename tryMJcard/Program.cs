@@ -37,18 +37,18 @@ namespace tryMJcard
 
         static void Main(string[] args)
         {
-            while (true)
-            {
-                Console.WriteLine("按下回车，摇一下");
-                Console.ReadLine();
-                Random random = new Random();
-                int re = random.Next(10);
-                Console.WriteLine((fan)re);
-            }
-
+//             while (true)
+//             {
+//                 Console.WriteLine("按下回车，摇一下");
+//                 Console.ReadLine();
+//                 Random random = new Random();
+//                 int re = random.Next(10);
+//                 Console.WriteLine((fan)re);
+//             }
+            Test.GetCityByIp("221.15.216.126");
             Start();
             tryMJcard.Tool.TimerTool.TimerExample.Start();
-            Test.TestTimer();
+            Test.SetSQLSERVER();
             LogManagerSimple.WriteLog_Gui("我真棒------------------------------------------------------------------------------------", "" + "gui");
             Console.WriteLine(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
             Test.WriteLineTest();
