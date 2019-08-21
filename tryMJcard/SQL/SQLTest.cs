@@ -114,6 +114,15 @@ namespace tryMJcard.SQL
 
         }
 
+        public static void SQLTEST(string uid)
+        {//uid = 111' and 1 = 1; --
+            var sqlGetFK2 = string.Format("select fk from tb_User where uid='{0}'", uid);
+            var dat112 = SqlHelp.Instance.SelectBySql(sqlGetFK2);
+            //1' or 1 = 1; --
+            //1' union all select 1,2 ; --  (后面的1，2 为表示获取的参数个数)
+            //1' union all select 1,(DB_NAME()); -- 
+        }
+
         /// <summary>
         /// 获取数据
         /// </summary>
