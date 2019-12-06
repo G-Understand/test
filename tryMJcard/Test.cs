@@ -331,10 +331,142 @@ namespace tryMJcard
             }
         }
 
+        /// <summary>
+        /// 二分树查询
+        /// </summary>
+        /// <param name="args"></param>
+        static void BinaryQuery(string[] args)
+        {
+
+            int[] array = { 10, 20, 50, 6, 45, 10, 33, 25, 40, 5 };
+
+            Array.Sort(array);
+
+            Console.Write("数组排序之后: ");
+            foreach (var i in array)
+            {
+                Console.Write(i + ",");
+            }
+
+            Console.WriteLine();
+            int a = SearchFun(array, 45);
+            Console.WriteLine("找到的值:" + a);
+
+
+
+
+            Console.Read();
+        }
+
+        static int SearchFun(int[] array, int value)
+        {
+            int mid, low, high;
+
+            low = 0;
+            high = array.Length - 1;
+
+            while (low < high)
+            {
+                mid = (low + high) / 2;                 //数组从中间找
+                if (array[mid] == value)
+                    return array[mid];
+
+                if (array[mid] > value)                 //数组中的值 大于 要找的值, 继续在数组下部分查询   
+                    high = mid - 1;
+                else
+                    low = mid + 1;                      //数组中的值 大于 要找的值, 继续在数组上部分查询   
+            }
+
+            return -1;
+
+        }
+
+        public static void BinaryTree(string[] args)
+        {
+            int[] array = { 43, 69, 11, 72, 28, 21, 56, 80, 48, 94, 32, 8 };
+
+            Console.WriteLine(BinaryTreeSearch(array));
+
+            Console.ReadKey();
+        }
+
+        public static int BinaryTreeSearch(int[] array)
+        {
+            var bstNode = new BSTNode(array[0], 0);
+            for (int i = 1; i < array.Length; i++)
+            {
+                bstNode.Insert(array[i], i);
+            }
+            return bstNode.Search(80);
+
+        }
 
         /// <summary>
-        /// 文本输入 测试
+        /// 二叉树类型
         /// </summary>
+        public class BSTNode
+        {
+
+            public int Key { get; set; }
+
+            public int Index { get; set; }
+
+            public BSTNode Left { get; set; }
+
+            public BSTNode Right { get; set; }
+
+            public BSTNode(int key, int index)
+            {
+                Key = key;
+                Index = index;
+            }
+
+            public void Insert(int key, int index)
+            {
+                var tree = new BSTNode(key, index);
+                if (tree.Key <= Key)
+                {
+                    if (Left == null)
+                    {
+                        Left = tree;
+                    }
+                    else
+                    {
+                        Left.Insert(key, index);
+                    }
+                }
+                else
+                {
+                    if (Right == null)
+                    {
+                        Right = tree;
+                    }
+                    else
+                    {
+                        Right.Insert(key, index);
+                    }
+                }
+            }
+
+            public int Search(int key)
+            {
+                //找左子节点
+                var left = Left?.Search(key);
+                if (left.HasValue && left.Value != -1) return left.Value;
+                //找当前节点
+                if (Key == key) return Index;
+                //找右子节点
+                var right = Right?.Search(key);
+                if (right.HasValue && right.Value != -1) return right.Value;
+                //找不到时返回-1
+                return -1;
+            }
+
+        }
+
+        /// <summary>
+            /// 文本输入 测试
+            /// </summary>
         public static void WriteLineTest()
         {
             Console.WriteLine(Sign_in.Instance.Find_SignInRecord(4784341));
@@ -570,11 +702,13 @@ namespace tryMJcard
         /// <summary>
         /// 根据IP获取省市
         /// </summary>
-        static void GetAddressByIp()
+        public static void GetAddressByIp()
         {
             string ip = "115.193.217.249";
             string PostUrl = "http://int.dpool.sina.com.cn/iplookup/iplookup.php?ip=" + ip;
-            string res = GetDataByPost(PostUrl);//该条请求返回的数据为：res=1\t115.193.210.0\t115.194.201.255\t中国\t浙江\t杭州\t电信
+
+            string post = "https://oapi.dingtalk.com/robot/send?access_token=cbb90cd43b46ba015cacbb96b5808947d990ea2c54e9251eb8305c9e84ed23e6";
+            string res = GetDataByPost(post);//该条请求返回的数据为：res=1\t115.193.210.0\t115.194.201.255\t中国\t浙江\t杭州\t电信
             string[] arr = getAreaInfoList(res);
         }
 
@@ -586,7 +720,7 @@ namespace tryMJcard
         static string GetDataByPost(string url)
         {
             System.Net.HttpWebRequest req = (System.Net.HttpWebRequest)System.Net.WebRequest.Create(url);
-            string s = "anything";
+            string s = "测试信息";
             byte[] requestBytes = System.Text.Encoding.ASCII.GetBytes(s);
             req.Method = "POST";
             req.ContentType = "application/x-www-form-urlencoded";
@@ -595,11 +729,26 @@ namespace tryMJcard
             requestStream.Write(requestBytes, 0, requestBytes.Length);
             requestStream.Close();
             System.Net.HttpWebResponse res = (System.Net.HttpWebResponse)req.GetResponse();
-            System.IO.StreamReader sr = new System.IO.StreamReader(res.GetResponseStream(), System.Text.Encoding.Default);
+            System.IO.StreamReader sr = new System.IO.StreamReader(res.GetResponseStream(), System.Text.Encoding.UTF8);
             string backstr = sr.ReadToEnd();
             sr.Close();
             res.Close();
             return backstr;
+        }
+
+        public static void texxx()
+        {
+
+            string CorpId = "你的CorpId ";
+            string CorpSecret = "你的CorpSecret ";
+            string AccessToken = "";
+            string AccessUrl = string.Format("https://oapi.dingtalk.com/gettoken?corpid={0}&corpsecret={1}", CorpId, CorpSecret);
+//             https://oapi.dingtalk.com/robot/send?access_token=cbb90cd43b46ba015cacbb96b5808947d990ea2c54e9251eb8305c9e84ed23e6' \-H 'Content-Type: application/json' \
+//    -d '{"msgtype": "text", 
+//         "text": {
+//              "content": "我就是我, 是不一样的烟火"
+//         }
+//       }
         }
 
         /// <summary>

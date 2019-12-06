@@ -37,6 +37,12 @@ namespace tryMJcard
 
         static void Main(string[] args)
         {
+            Tool.GameTool.A星.Start start = new Tool.GameTool.A星.Start();
+            start.StartMap();
+
+            Console.ReadLine();
+            return;
+            Tool.GameTool.GameTest.Test();
 //             while (true)
 //             {
 //                 Console.WriteLine("按下回车，摇一下");
@@ -45,7 +51,8 @@ namespace tryMJcard
 //                 int re = random.Next(10);
 //                 Console.WriteLine((fan)re);
 //             }
-            Test.GetCityByIp("221.15.216.126");
+            tryMJcard.Tool.PayTool.YungouosPay.Handler();
+            Test.GetAddressByIp();//("221.15.216.126");
             Start();
             tryMJcard.Tool.TimerTool.TimerExample.Start();
             Test.SetSQLSERVER();

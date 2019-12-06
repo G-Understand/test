@@ -1,0 +1,56 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace tryMJcard.Tool.GameTool.A星
+{
+    public class PathNode
+    {
+        public PathNode(bool isWall, Point2 position)
+        {
+            this.isWall = isWall;
+            this.position = position;
+        }
+
+        public readonly Point2 position;
+
+        public bool isWall { get; set; }
+
+        public PathNode parent { get; set; }
+
+        public int gCost { get; set; }
+
+        public int hCost { get; set; }
+
+        public int fCost
+        {
+            get
+            {
+                return gCost + hCost;
+            }
+        }
+
+        public override bool Equals(object obj)
+        {
+            PathNode node = obj as PathNode;
+            return node.isWall == this.isWall && node.gCost == this.gCost && node.hCost == this.hCost && node.parent == this.parent && this.position == node.position;
+        }
+
+        public override int GetHashCode()
+        {
+            return gCost ^ (hCost * 128) + position.GetHashCode();
+        }
+
+        public static bool operator ==(PathNode a, PathNode b)
+        {
+            return a.Equals(b);
+        }
+
+        public static bool operator !=(PathNode a, PathNode b)
+        {
+            return !a.Equals(b);
+        }
+    }
+}
